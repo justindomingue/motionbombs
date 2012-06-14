@@ -1,4 +1,10 @@
 Motionbombs::Application.routes.draw do
+  
+  root :to => 'pages#home'
+  
+  get "pages/about"
+  get "pages/help"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
