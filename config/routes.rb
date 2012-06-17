@@ -1,5 +1,7 @@
 Motionbombs::Application.routes.draw do
   
+  resources :helps
+
   root :to => 'pages#home'
   
   get "pages/about"
