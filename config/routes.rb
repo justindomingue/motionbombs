@@ -1,4 +1,6 @@
 Motionbombs::Application.routes.draw do
+
+
   # root route
   root :to => 'pages#home'
   
@@ -10,6 +12,9 @@ Motionbombs::Application.routes.draw do
   resources :user_sessions, :only => [:new, :create, :destroy]
   resources :users, :only => [:new, :create]
   
+  match "oauth/callback" => "oauths#callback"
+  match "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
+
   # Help controller
   get 'help' => 'helps#new', :as => :help
   resources :helps, :only => [:new, :create]
