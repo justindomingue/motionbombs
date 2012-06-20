@@ -19,7 +19,7 @@ When /^I fill the login form correctly$/ do
 end
 
 Then /^I should be on login$/ do
-  current_path.should == '/user_sessions'
+  current_path.should == login_path
 end
 
 Then /^I should be on root$/ do

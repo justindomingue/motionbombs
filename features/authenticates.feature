@@ -15,7 +15,7 @@ Feature: User logs in
     Given I am on the login page
     And I am registered
     When I fill the login form uncorrectly
-    Then I should see "Login failed"
+    Then I should see "Invalid"
     And I should be on login
     
   
