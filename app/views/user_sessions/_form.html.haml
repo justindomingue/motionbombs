@@ -6,9 +6,11 @@
   .field
     = label_tag :password
     %br
-    = text_field_tag :password
-
+    = password_field_tag :password
+  .field
+    = label_tag :remember_me
+    = check_box_tag :remember_me
+  %br
   .actions
-    = submit_tag "Login"
-    
+  = submit_tag "Log in"   
     
