@@ -8,7 +8,8 @@ group :development, :test do
 end
 
 group :test do
-  gem 'capybara', '1.1.2'
+  gem 'webrat'
+  gem 'cucumber'
   gem 'cucumber-rails', '>=1.3.0'
   gem 'database_cleaner'
 end
@@ -23,3 +24,5 @@ end
 
 gem 'jquery-rails'
 gem 'haml'
+
+gem 'sorcery'

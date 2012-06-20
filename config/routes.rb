@@ -1,11 +1,21 @@
 Motionbombs::Application.routes.draw do
-  
-  resources :helps
-
+  # root route
   root :to => 'pages#home'
   
-  get "pages/about"
-  get "pages/help"
+  # Authentication routes
+  get 'login'  => 'user_sessions#new', :as => :login
+  get 'logout' => 'user_sessions#destroy', :as => :logout
+  get 'signup' => 'users#new', :as => 'signup'
+  
+  resources :user_sessions, :only => [:new, :create, :destroy]
+  resources :users, :only => [:new, :create]
+  
+  # Help controller
+  get 'help' => 'helps#new', :as => :help
+  resources :helps, :only => [:new, :create]
+  
+  # Static page controller
+  get "pages/about", :as => :about
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

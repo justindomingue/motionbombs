@@ -1,5 +1,5 @@
 Given /^I am on the help page$/ do
-  visit new_help_path
+  visit help_path
 end
 
 When /^I fill the contact form$/ do

@@ -2,14 +2,18 @@
 
 = form_for @help do |f|
   = f.label :name
+  %br
   = f.text_field :name
   %br
   
   = f.label :email, "Email*"
+  %br
   = f.text_field :email
   %br
   
   = f.label :message, "Message*"
+  %br
   = f.text_area :message
-
+  %br
+  
   = f.submit "I need help!"
