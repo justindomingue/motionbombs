@@ -15,9 +15,9 @@ describe "Pages" do
     end
   end
   
-  describe "GET /pages/help" do
+  describe "GET /help" do
     it "has the right title" do
-      visit '/pages/help'
+      visit '/help'
       page.should have_selector('title', :text => 'Help | Motion Bombs')
     end
   end
