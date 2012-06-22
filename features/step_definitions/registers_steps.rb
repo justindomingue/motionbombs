@@ -19,5 +19,5 @@ When /^I fill the register form correctly$/ do
 end
 
 Then /^I should be on register$/ do
-  current_path.should == signup_path
+  current_path.should == '/users'
 end

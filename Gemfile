@@ -6,6 +6,7 @@ group :development, :test do
   gem 'rspec-rails', '>=2.10.1'
   gem 'sqlite3'
   gem 'guard-rspec', '0.5.5'
+  gem 'spork', '0.9.0'
 end
 
 group :test do
@@ -15,6 +16,7 @@ group :test do
   gem 'database_cleaner'
   gem 'rb-fsevent', '0.4.3.1', require: false
   gem 'growl', '1.0.3'
+  gem 'guard-cucumber'
 end
 
 # Gems used only for assets and not required
@@ -29,3 +31,4 @@ gem 'jquery-rails'
 gem 'haml'
 
 gem 'sorcery'
+gem 'irwi'

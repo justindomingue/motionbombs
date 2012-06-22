@@ -9,13 +9,13 @@ end
 When /^I fill the login form uncorrectly$/ do
   fill_in 'Username', :with => 'Wrong user'
   fill_in 'Password', :with => 'Wrong password'
-  click_button 'Login'
+  click_button 'Log in'
 end
 
 When /^I fill the login form correctly$/ do
   fill_in 'Username', :with => 'Example'
   fill_in 'Password', :with => 'password'
-  click_button 'Login'
+  click_button 'Log in'
 end
 
 Then /^I should be on login$/ do
