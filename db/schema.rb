@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120620161324) do
+ActiveRecord::Schema.define(:version => 20120624154545) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id",    :null => false
@@ -41,5 +41,18 @@ ActiveRecord::Schema.define(:version => 20120620161324) do
   end
 
   add_index "users", ["remember_me_token"], :name => "index_users_on_remember_me_token"
+
+  create_table "videos", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "thumb"
+    t.integer  "url"
+    t.string   "src"
+    t.string   "provider"
+    t.integer  "views"
+    t.integer  "likes"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
 end
