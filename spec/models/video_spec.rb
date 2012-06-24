@@ -6,7 +6,7 @@ module VideoSpecHelper
       description:"Long example for description", 
       thumb:"http://example.com/img.jpg", 
       url:"0973",
-      src:"H2L313M",
+      provider_video_id:"H2L313M",
       provider:"Provider",
       views:0,
       likes:0 }    
@@ -92,6 +92,22 @@ describe Video do
     @video.views = "999"
     @video.should be_valid
   end
+  
+  describe 'methods to get the provider_video_id' do
+    it "should return the right provider_video_id from VIMEO" do
+      url = "http://www.vimeo.com/7592893"
+      id = @video.get_vimeo_video_id(url)
+      id.should == '7592893'
+    end
+  end  
+  
+  describe 'methods to get the provider_video_id' do
+    it "should return the right provider_video_id from YOUTUBE" do
+      url = "http://www.youtube.com/watch?v=T3UfQAGXSQM&feature=relmfu"
+      id = @video.get_youtube_video_id(url)
+      id.should == 'T3UfQAGXSQM'
+    end
+  end  
   
   
 end
