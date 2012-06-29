@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120624172557) do
+ActiveRecord::Schema.define(:version => 20120629150353) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id",    :null => false
@@ -46,7 +46,6 @@ ActiveRecord::Schema.define(:version => 20120624172557) do
     t.string   "title"
     t.text     "description"
     t.string   "thumb"
-    t.integer  "url"
     t.string   "provider_video_id"
     t.string   "provider"
     t.integer  "views"
