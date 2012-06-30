@@ -42,14 +42,6 @@ describe Video do
     @video.should be_valid
   end
   
-  it "should not be valid when description is empty" do
-    @video.attributes = valid_video_attributes.except(:description)
-    @video.should_not be_valid
-    @video.should have(1).error_on(:description)
-    @video.description = "Example"
-    @video.should be_valid
-  end
-  
   it "should not be valid when thumb is empty" do
     @video.attributes = valid_video_attributes.except(:thumb)
     @video.should_not be_valid

@@ -1,10 +1,8 @@
 Motionbombs::Application.routes.draw do
 
-
-  wiki_root '/wiki'
-
   # root route
   root :to => 'pages#home'
+  # =================================================================
   
   # Authentication routes
   get 'login'  => 'user_sessions#new', :as => :login
@@ -16,13 +14,19 @@ Motionbombs::Application.routes.draw do
   
   match "oauth/callback" => "oauths#callback"
   match "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
-
+  # =================================================================
+  
+  # Video routes
+  resources :videos
+  
   # Help controller
   get 'help' => 'helps#new', :as => :help
   resources :helps, :only => [:new, :create]
+  # =================================================================
   
   # Static page controller
   get "pages/about", :as => :about
+  # =================================================================
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
