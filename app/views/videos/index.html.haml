@@ -1,0 +1,14 @@
+- @videos.each do |v|
+  Title :
+  = v.title
+  %br
+  Description :
+  = v.description
+  %br
+  = image_tag(v.thumb)
+  %br
+  Provider :
+  = v.provider
+  %br
+  = link_to "Watch the video", video_path(v)
+  %hr

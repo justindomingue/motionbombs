@@ -1,3 +1,5 @@
 = @video.title
 %br
 = @video.description
+%br
+= send('format_for_' + @video.provider.downcase, @video.provider_video_id)

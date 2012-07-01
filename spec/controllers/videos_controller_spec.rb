@@ -4,38 +4,45 @@ describe VideosController do
   describe "POST create" do
     let(:video) { mock_model(Video).as_null_object }
     
-    before do
+    before(:each) do
       Video.stub(:new).and_return(video)
+      @params = {:video => { :title=>"Example title", :description=>"Description", :url=>"http://www.youtube.com/watch?v=b6speA_XhP4", :provider=>"youtube" }}
     end
     
+    it 'creates a new video given valid parameters' do
+      Video.should_receive(:save).with(@params[:video])
+      post :create, @params, @params
+    end
+
     context 'when the video saves successfully' do
       before do
         video.stub(:save).and_return(true)
       end
       
       it "sets a flash[:notice] message" do
-        post :create
+        post :create, @params
         flash[:notice].should eq("Video added successfully.")
       end
       
       it "redirects to the added video path" do
-        post :create
-        response.should redirect_to(video_path('1'))
+        post :create, @params
+        video = assigns(:video)
+        response.should redirect_to video_path(video)
       end
     end
     
     context 'when the video fails to save' do
-      before do
+      before(:each) do
         video.stub(:save).and_return(false)
       end
       
       it "assigns @video" do
-        post :create
+        post :create, @params
         assigns[:video].should eq(video)
       end
       
       it "renders the new template" do
-        post :create
+        post :create, @params
         response.should render_template("new")
       end
     end

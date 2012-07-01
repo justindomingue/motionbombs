@@ -5,8 +5,8 @@ end
 When /^I fill in the form$/ do
   fill_in 'Title', with:'Title of the video'
   fill_in 'Description', with:'This is a description.'
-  fill_in 'URL', with:'http://www.youtube.com/watch?v=EuSNbih9mAc&feature=g-logo-xit'
-  choose 'provider_youtube'
+  fill_in 'video_url', with:'http://www.youtube.com/watch?v=EuSNbih9mAc&feature=g-logo-xit'
+  choose 'video_provider_youtube'
   click_button 'Add video'
 end
 
@@ -16,6 +16,5 @@ end
 
 Then /^I should be on the new video page$/ do
   @video = Video.find_by_title('Title of the video')
-  current_path.should == videos_path(@video)
-  save_and_open_page
+  current_path.should == video_path(@video)
 end
