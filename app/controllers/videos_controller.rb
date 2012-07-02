@@ -17,7 +17,7 @@ class VideosController < ApplicationController
     params[:video][:provider_video_id] = Video.send(method, params[:video][:url])
     params[:video][:thumb] = Video.get_thumb_from_youtube(params[:video][:provider_video_id])
     params[:video][:views] = params[:video][:likes] = 0    
-    
+    params[:video][:user_id] = current_user
     @video = Video.new(params[:video])
     if @video.save
       redirect_to video_path(@video), notice:'Video added successfully.'

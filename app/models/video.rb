@@ -1,5 +1,6 @@
 class Video < ActiveRecord::Base
-  attr_accessible :id, :url, :title, :description, :thumb, :provider_video_id, :provider, :views, :likes
+  attr_accessible :id, :url, :title, :description, :thumb, :provider_video_id, :provider, :views, :likes, :user_id
+  belongs_to :user
   
   before_create do |video|
     video.title.capitalize!
@@ -7,7 +8,7 @@ class Video < ActiveRecord::Base
     video.provider.capitalize!
   end
   
-  validates :title, :thumb, :provider_video_id, :provider, :presence => true
+  validates :title, :thumb, :provider_video_id, :provider, :user_id, :presence => true
   validates :title, :length => { :maximum => 50 }
   validates :description, :length => { :maximum => 500 }
   validates :thumb, :format => { :with => /http:\/\/.+\.[jpg|png|gif]/i}

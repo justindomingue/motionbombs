@@ -39,11 +39,6 @@ Spork.prefork do
     config.infer_base_class_for_anonymous_controllers = false
     
     config.include FactoryGirl::Syntax::Methods
-    
-     # Clean/Reset Mongoid DB prior to running the tests
-    config.before :each do
-      Mongoid.master.collections.select {|c| c.name !~ /system/ }.each(&:drop)
-    end
   end
 end
 

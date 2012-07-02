@@ -1,4 +1,3 @@
-require 'spec_helper'
 
 module VideoSpecHelper
   def valid_video_attributes
@@ -67,23 +66,22 @@ describe Video do
     @video.views = "999"
     @video.should be_valid
   end
-
   
-  describe 'methods to get the provider_video_id' do
-    it "should return the right provider_video_id from VIMEO" do
-      pending("private method")
-      url = "http://www.vimeo.com/7592893"
-      id = @video.get_vimeo_video_id(url)
-      id.should == '7592893'
-    end
-  end  
-  
-  describe 'methods to get the provider_video_id' do
-    it "should return the right provider_video_id from YOUTUBE" do
-      pending("private method")
-      url = "http://www.youtube.com/watch?v=T3UfQAGXSQM&feature=relmfu"
-      id = @video.get_youtube_video_id(url)
-      id.should == 'T3UfQAGXSQM'
+  describe "association to User" do
+    let(:user) { FactoryGirl.create(:user) }
+    before { @video = user.videos.build(title:'Example') }
+    
+    subject { @video }
+    
+    it { should respond_to(:title) }
+    it { should respond_to(:description) }
+    it { should respond_to(:user_id) }
+    it { should respond_to(:user) }
+    its(:user) { should == user }
+    
+    describe "when user_id is not present" do
+      before { @video.user_id = nil }
+      it { should_not be_valid }
     end
   end
 end

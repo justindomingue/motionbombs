@@ -15,4 +15,10 @@ FactoryGirl.define do
     views       "0"
     likes       "0"
   end
+  
+  factory :user do
+    username    "username"
+    password    "password"
+    email       "example@domain.com"
+  end
 end
