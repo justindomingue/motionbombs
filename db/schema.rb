@@ -46,13 +46,13 @@ ActiveRecord::Schema.define(:version => 20120701171541) do
     t.string   "title"
     t.text     "description"
     t.string   "thumb"
+    t.integer  "url"
     t.string   "provider_video_id"
     t.string   "provider"
     t.integer  "views"
     t.integer  "likes"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
-    t.integer  "url"
     t.integer  "user_id"
   end
 
