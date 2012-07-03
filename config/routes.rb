@@ -2,7 +2,9 @@ Motionbombs::Application.routes.draw do
 
   # root route
   root :to => 'pages#home'
-  # =================================================================
+
+  # Video routes
+  resources :videos
   
   # Authentication routes
   get 'login'  => 'user_sessions#new', :as => :login
@@ -15,9 +17,6 @@ Motionbombs::Application.routes.draw do
   match "oauth/callback" => "oauths#callback"
   match "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
   # =================================================================
-  
-  # Video routes
-  resources :videos
   
   # Help controller
   get 'help' => 'helps#new', :as => :help

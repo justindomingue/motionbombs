@@ -1,5 +1,5 @@
 class VideosController < ApplicationController
-  
+  before_filter :require_login, :only => [:new, :create]
   def index
     @videos = Video.last(50)
   end
