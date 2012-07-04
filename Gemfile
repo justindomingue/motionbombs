@@ -34,4 +34,3 @@ gem 'jquery-rails'
 gem 'haml'
 
 gem 'sorcery'
-gem 'irwi'
