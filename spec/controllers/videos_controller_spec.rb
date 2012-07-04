@@ -8,11 +8,6 @@ describe VideosController do
       Video.stub(:new).and_return(video)
       @params = {:video => { :title=>"Example title", :description=>"Description", :url=>"http://www.youtube.com/watch?v=b6speA_XhP4", :provider=>"youtube" }}
     end
-    
-    it 'creates a new video given valid parameters' do
-      Video.should_receive(:save).with(@params[:video])
-      post :create, @params, @params
-    end
 
     context 'when the video saves successfully' do
       before do

@@ -13,17 +13,21 @@
   .field
     = f.label :description
     = f.text_area :description
+  %br
   .field
     = f.label :url, 'URL'
     = f.text_field :url
+  %br
   .field
     Provider
-    %br
     = radio_button :video, :provider, 'vimeo'
     = f.label :provider, 'Vimeo', :value => 'vimeo'
-    %br
     = radio_button :video, :provider, 'youtube' 
     = f.label :provider, 'Youtube', :value => 'youtube'
+  %br
+  .field
+    Category
+    = collection_select(:video, :category_id, Category.all, :id, :name, :include_blank => true)
   %br
   .actions
     = f.submit "Add video"   

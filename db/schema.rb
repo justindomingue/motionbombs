@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120701171541) do
+ActiveRecord::Schema.define(:version => 20120703234444) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id",    :null => false
@@ -19,6 +19,13 @@ ActiveRecord::Schema.define(:version => 20120701171541) do
     t.string   "uid",        :null => false
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "helps", :force => true do |t|
@@ -54,8 +61,10 @@ ActiveRecord::Schema.define(:version => 20120701171541) do
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
     t.integer  "user_id"
+    t.integer  "category_id"
   end
 
+  add_index "videos", ["category_id", "created_at"], :name => "index_videos_on_category_id_and_created_at"
   add_index "videos", ["user_id", "created_at"], :name => "index_videos_on_user_id_and_created_at"
 
 end

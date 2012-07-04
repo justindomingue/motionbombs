@@ -83,6 +83,11 @@ describe Video do
       before { @video.user_id = nil }
       it { should_not be_valid }
     end
+    
+    describe "when category_id is not present" do
+      before { @video.category_id = nil }
+      it { should_not be_valid }
+    end
   end
 end
     
