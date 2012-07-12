@@ -6,6 +6,9 @@ Motionbombs::Application.routes.draw do
   # Video routes
   resources :videos
   
+  # Likes routes
+  resources :likes, :only => [:create, :destroy]
+  
   # Authentication routes
   get 'login'  => 'user_sessions#new', :as => :login
   get 'logout' => 'user_sessions#destroy', :as => :logout

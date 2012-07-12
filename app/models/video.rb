@@ -2,6 +2,7 @@ class Video < ActiveRecord::Base
   attr_accessible :id, :url, :title, :description, :thumb, :provider_video_id, :provider, :views, :likes, :user_id, :category_id
   belongs_to :user
   belongs_to :category
+  has_many :likes
   
   before_create do |video|
     video.title.capitalize!

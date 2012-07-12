@@ -7,5 +7,4 @@ module VideoHelper
   def format_for_vimeo(provider_video_id)
     "<iframe src='http://player.vimeo.com/video/#{provider_video_id}' width='500' heigth='280' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>".html_safe
   end
-
 end

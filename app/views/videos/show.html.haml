@@ -2,4 +2,10 @@
 %br
 = @video.description
 %br
+#like
+  = render 'likes/like_button', :video => @video
+#like_count
+  = @video.likes.count
+  
+%br
 = send('format_for_' + @video.provider.downcase, @video.provider_video_id)

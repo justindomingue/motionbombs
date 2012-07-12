@@ -1,5 +1,4 @@
 module ApplicationHelper
-  
   def title
     base_title = 'Motion Bombs'
     unless defined? @title
