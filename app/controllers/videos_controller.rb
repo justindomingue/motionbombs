@@ -1,5 +1,7 @@
 class VideosController < ApplicationController
   before_filter :require_login, :only => [:new, :create]
+  before_filter :increment_views, :only => :show
+  
   def index
     @videos = Video.all
   end
@@ -25,4 +27,14 @@ class VideosController < ApplicationController
       render :new
     end
   end
+  
+  private
+      
+    def increment_views
+      if current_user
+        Visit.increment_for_user(current_user.id, params[:id])
+      else
+        Visit.increment_for_ip(request.remote_ip, params[:id])
+      end
+    end
 end

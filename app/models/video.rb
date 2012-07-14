@@ -3,6 +3,7 @@ class Video < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
   has_many :likes
+  has_many :visits
   
   before_create do |video|
     video.title.capitalize!
@@ -14,7 +15,7 @@ class Video < ActiveRecord::Base
   validates :title, :length => { :maximum => 50 }
   validates :description, :length => { :maximum => 500 }
   validates :thumb, :format => { :with => /http:\/\/.+\.[jpg|png|gif]/i}
-  validates :views, :likes, :numericality => { :only_integer => true }
+  validates :views, :numericality => { :only_integer => true }
   
   scope :youtube, where(provider:"youtube")
   scope :vimeo, where(provider:"vimeo")
