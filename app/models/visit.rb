@@ -5,8 +5,8 @@ class Visit < ActiveRecord::Base
   belongs_to :user
   
   def self.increment_for_user(user_id, video_id)
-    visit = Visit.find_by_user_id(user_id)
-    if visit.present?
+    visit = Visit.find_by_user_id_and_video_id(user_id, video_id)
+    if visit.present? 
       visit.visits += 1
     else
       visit = Visit.new(user_id: user_id, video_id: video_id, visits:1)
@@ -20,7 +20,7 @@ class Visit < ActiveRecord::Base
   end
   
   def self.increment_for_ip(ip, video_id)
-    visit = Visit.find_by_ip(ip)
+    visit = Visit.find_by_ip_and_video_id(ip, video_id)
     if visit.present?
       visit.visits += 1
     else

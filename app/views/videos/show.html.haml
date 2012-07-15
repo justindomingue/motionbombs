@@ -9,6 +9,6 @@
   = @video.likes.count
 %br
 Views :
-= @video.visits.count
+= @video.views
 %br
 = send('format_for_' + @video.provider.downcase, @video.provider_video_id)

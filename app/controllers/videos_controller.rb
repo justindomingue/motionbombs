@@ -18,7 +18,7 @@ class VideosController < ApplicationController
     method = 'get_' + params[:video][:provider] + '_video_id'
     params[:video][:provider_video_id] = Video.send(method, params[:video][:url])
     params[:video][:thumb] = Video.get_thumb_from_youtube(params[:video][:provider_video_id])
-    params[:video][:views] = params[:video][:likes] = 0    
+    params[:video][:views] = 0    
     params[:video][:user_id] = current_user
     @video = Video.new(params[:video])
     if @video.save
@@ -32,7 +32,7 @@ class VideosController < ApplicationController
       
     def increment_views
       if current_user
-        Visit.increment_for_user(current_user.id, params[:id])
+        Visit.increment_for_user(current_user, params[:id])
       else
         Visit.increment_for_ip(request.remote_ip, params[:id])
       end

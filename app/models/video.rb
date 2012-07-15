@@ -12,8 +12,8 @@ class Video < ActiveRecord::Base
   end
   
   validates :title, :thumb, :provider_video_id, :provider, :user_id, :presence => true
-  validates :title, :length => { :maximum => 50 }
-  validates :description, :length => { :maximum => 500 }
+  validates :title, :length => { :maximum => 35 }
+  validates :description, :length => { :maximum => 200 }
   validates :thumb, :format => { :with => /http:\/\/.+\.[jpg|png|gif]/i}
   validates :views, :numericality => { :only_integer => true }
   
