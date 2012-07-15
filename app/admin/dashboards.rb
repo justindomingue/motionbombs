@@ -1,5 +1,5 @@
 ActiveAdmin::Dashboards.build do
-  section "Recent Videos" do
+  section "Recent Videos", :priority => 1 do
     table_for Video.order("created_at desc").limit(5) do
       column :title do |v|
         link_to v.title, [:admin, v]
@@ -14,7 +14,7 @@ ActiveAdmin::Dashboards.build do
     strong { link_to "View All Videos", admin_videos_path }
   end
   
-  section "Recent Users" do
+  section "Recent Users", :priority => 2 do
     table_for User.order("created_at desc").limit(5) do
       column :username do |u|
         link_to u.username, [:admin, u]
@@ -24,11 +24,10 @@ ActiveAdmin::Dashboards.build do
     strong { link_to "View All Users", admin_users_path }
   end
   
-  section "Recent Help" do
+  section "Recent Help Tickets" do
     table_for Help.order("created_at desc").limit(5) do
-      column :name do |h|
-        link_to h.name, [:admin, h]
-      end
+      column("Status") { |ticket| status_tag(ticket.status) }
+      column("Name")   { |h| link_to h.name, [:admin, h]    }
       column :email
     end
     strong { link_to "View All Help Tickets", admin_helps_path }

@@ -5,6 +5,7 @@ class HelpsController < ApplicationController
   end
   
   def create
+    params[:help][:status] = "Opened"
     @help = Help.new(params[:help])
     if @help.save
       redirect_to root_path, :notice => 'Help ticket successfully created. You should be contacted soon.'
