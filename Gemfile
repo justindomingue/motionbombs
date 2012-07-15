@@ -34,3 +34,6 @@ gem 'jquery-rails'
 gem 'haml'
 
 gem 'sorcery'
+
+gem 'activeadmin'
+gem 'formtastic', '~> 2.1.0'

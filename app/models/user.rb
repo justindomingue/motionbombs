@@ -10,7 +10,8 @@ class User < ActiveRecord::Base
   has_many :authentications, :dependent => :destroy
   accepts_nested_attributes_for :authentications
   
-  validates_presence_of :username, :email
+  validates_presence_of :username
+  validates_presence_of :email
   validates_uniqueness_of :username, :email
   validates_presence_of :password, :on => :create
   validates_length_of :password, :minimum => 3, :message => "password must be at least 3 characters long", :if => :password
