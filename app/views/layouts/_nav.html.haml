@@ -1,0 +1,43 @@
+%header.navbar.navbar-fixed-top
+  %nav.navbar-inner
+    .container-fluid
+      -# .btn-navbar is used as the toggle for collapsed navbar content
+      %a.btn.btn-navbar{"data-toggle" => "collapse", "data-target" => ".nav-collapse"}
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+        
+      -# things that won't be collapsed
+      = link_to 'Motion Bombs', '/', class:"brand"
+      .btn-group.pull-right   
+        - if current_user
+          %a.btn.dropdown-toggle{"data-toggle" => "dropdown", href:'#'}
+            %i.icon-user
+            = current_user.username.capitalize
+            %span.caret
+          %ul.dropdown-menu
+            %li= link_to 'Profile', '#'
+            %li.divider
+            %li= link_to 'Sign out', logout_path
+        - else
+          %a.btn.dropdown-toggle{"data-toggle" => "dropdown", href:'#'}
+            %i.icon-user
+            Authenticate
+            %span.caret  
+          %ul.dropdown-menu
+            %li= link_to 'Log in', login_path
+            %li= link_to 'Facebook', auth_at_provider_path(:provider => :facebook)
+            %li= link_to 'Twitter', auth_at_provider_path(:provider => :twitter)
+            %li.divider
+            %li= link_to 'Register', signup_path
+            
+      -# hidden content at 940px or less    
+      .nav-collapse
+        %ul.nav
+          %li.active= link_to 'home', root_path
+          %li= link_to 'browse', videos_path
+          %li= link_to 'submit', new_video_path
+          %li= link_to 'help', help_path
+        %form.navbar-search.pull-lefts
+          %input.search-query{type:"text", placeholder:"Search"}
+          

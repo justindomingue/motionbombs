@@ -1,14 +1,89 @@
-- @videos.each do |v|
-  Title :
-  = v.title
-  %br
-  Description :
-  = v.description
-  %br
-  = image_tag(v.thumb)
-  %br
-  Provider :
-  = v.provider
-  %br
-  = link_to "Watch the video", video_path(v)
-  %hr
+.page-header
+  %h1 The ultimate resource for stop-motion
+  %small Browse, watch, add and learn.
+  
+%ul.thumbnails
+  %li.span3
+    .thumbnail
+      = link_to image_tag(@videos[0].thumb, size:"260x145"), video_path(@videos[1])
+      .thumb_info
+        %h5= @videos[1].title
+        %p
+          %i.icon-eye-open
+          = @videos[1].views
+          %i.icon-heart
+          = @videos[1].likes.count
+  %li.span3
+    .thumbnail
+      %a{href:"#"}
+        %img{src:"http://placehold.it/260x180", alt:""}
+      .thumb_info
+        %h5= truncate("Dot. The world smallest stop motion", length:25)
+        %p
+          %i.icon-eye-open
+          11
+          %i.icon-heart
+          1
+  %li.span3
+    .thumbnail
+      %a{href:"#"}
+        %img{src:"http://placehold.it/260x180", alt:""}
+      .thumb_info
+        %h5 Human spinball
+        %p
+          %i.icon-eye-open
+          994
+          %i.icon-heart
+          4
+  %li.span3
+    .thumbnail
+      %a{href:"#"}
+        %img{src:"http://placehold.it/260x180", alt:""}
+      .thumb_info
+        %h5 Food cortesy
+        %p
+          %i.icon-eye-open
+          %span.views 1474
+          %i.icon-heart
+          134
+%ul.thumbnails
+  %li.span3
+    %a.thumbnail{href:"#"}
+      %img{src:"http://placehold.it/260x180", alt:""}
+  %li.span3
+    %a.thumbnail{href:"#"}
+      %img{src:"http://placehold.it/260x180", alt:""}
+  %li.span3
+    %a.thumbnail{href:"#"}
+      %img{src:"http://placehold.it/260x180", alt:""}
+  %li.span3
+    %a.thumbnail{href:"#"}
+      %img{src:"http://placehold.it/260x180", alt:""}
+
+%ul.thumbnails
+  %li.span3
+    %a.thumbnail{href:"#"}
+      %img{src:"http://placehold.it/260x180", alt:""}
+  %li.span3
+    %a.thumbnail{href:"#"}
+      %img{src:"http://placehold.it/260x180", alt:""}
+  %li.span3
+    %a.thumbnail{href:"#"}
+      %img{src:"http://placehold.it/260x180", alt:""}
+  %li.span3
+    %a.thumbnail{href:"#"}
+      %img{src:"http://placehold.it/260x180", alt:""}
+
+%ul.thumbnails
+  %li.span3
+    %a.thumbnail{href:"#"}
+      %img{src:"http://placehold.it/260x180", alt:""}
+  %li.span3
+    %a.thumbnail{href:"#"}
+      %img{src:"http://placehold.it/260x180", alt:""}
+  %li.span3
+    %a.thumbnail{href:"#"}
+      %img{src:"http://placehold.it/260x180", alt:""}
+  %li.span3
+    %a.thumbnail{href:"#"}
+      %img{src:"http://placehold.it/260x180", alt:""}

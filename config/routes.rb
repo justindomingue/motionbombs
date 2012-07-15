@@ -5,7 +5,7 @@ Motionbombs::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   # root route
-  root :to => 'pages#home'
+  root :to => 'videos#index'
 
   # Video routes
   resources :videos

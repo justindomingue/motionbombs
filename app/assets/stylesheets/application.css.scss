@@ -1,0 +1,49 @@
+// Example using 'journal' bootswatch
+//
+// First import journal variables
+@import "bootswatch/journal/variables";
+
+// Then bootstrap itself
+@import "bootstrap";
+
+// Bootstrap body padding for fixed navbar
+body { padding-top: 60px; }
+
+// Responsive styles go here in case you want them
+@import "bootstrap-responsive";
+
+// And finally bootswatch style itself
+@import "bootswatch/journal/bootswatch";
+
+.page-header { 
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 0px;
+  h1 { font-size: 2em; }
+  small { font-size: 1.3em;}  
+}
+
+.thumbnails {
+  text-align:center;
+}
+
+.thumbnails > li {
+    display: inline-block;
+    *display:inline; /* ie7 fix */
+    float: none; /* this is the part that makes it work */
+}
+
+/* Thumbnail rollover */
+
+.thumbnail {
+  h5 {
+    padding-top: 4px;
+  }
+  
+  &:hover {
+  border-color: #0088cc;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+     -moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+          box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+}
+}
