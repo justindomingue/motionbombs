@@ -1,0 +1,27 @@
+= form_for @help do |f|
+  = f.label :name, 'Your Full Name:'
+  .controls
+    .input-prepend
+      %span.add-on
+        %i.icon-user
+      = f.text_field :name, :class => "form-field"
+
+  = f.label :email, "Email Adress:"
+  .controls
+    .input-prepend
+      %span.add-on
+        %i.icon-envelope
+      = f.text_field :email, :class => "form-field"
+      
+  = f.label :message, "Your message:"
+  = f.text_area :message, rows:"5", cols:"30"
+  %br
+  
+  .form-actions
+    .alert.alert-error
+      %p
+        %strong Please, do not ask questions about Stop Motions. 
+        If it's what you want, visit the guides section and/or the videos.
+    = f.submit "I need help!", :class => "btn btn-danger btn-large", "data-disable-with"=> "Just a moment..."
+  
+  

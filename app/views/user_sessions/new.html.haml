@@ -1,5 +1,12 @@
-%h1 Login
-
-= link_to 'Login with Twitter', auth_at_provider_path(:provider => :twitter)
-
-= render 'form'
+.row
+  .span8.offset2
+    .section.section-large
+      .section-header
+        %h3 Login in to Motion Bombs
+        %ul
+          %li
+            = link_to 'Sign up →', signup_path
+      .section-body
+        = link_to 'Login with Twitter', auth_at_provider_path(:provider => :twitter)
+        %hr
+        = render 'form'

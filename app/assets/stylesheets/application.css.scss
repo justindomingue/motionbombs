@@ -1,6 +1,7 @@
 // Example using 'journal' bootswatch
 //
 // First import journal variables
+
 @import "bootswatch/journal/variables";
 
 // Then bootstrap itself
@@ -15,6 +16,15 @@ body { padding-top: 60px; }
 // And finally bootswatch style itself
 @import "bootswatch/journal/bootswatch";
 
+@import "form";
+
+a { 
+  text-decoration:none;
+  &:hover {
+    text-decoration: none;
+    color: orange;
+  }
+}
 .page-header { 
   text-transform: uppercase;
   text-align: center;
