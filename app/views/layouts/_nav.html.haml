@@ -21,8 +21,8 @@
             %li= link_to 'Sign out', logout_path
         - else
           %a.btn.dropdown-toggle{"data-toggle" => "dropdown", href:'#'}
-            %i.icon-user
-            Authenticate
+            %i.icon-user.margin-top-2
+            Log in
             %span.caret  
           %ul.dropdown-menu
             %li= link_to 'Log in', login_path

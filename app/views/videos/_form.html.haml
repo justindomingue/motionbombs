@@ -8,22 +8,22 @@
         - @video.errors.full_messages.each do |msg|
           %li= msg
           
-  = f.label :title, 'Give your video a title :'
+  = f.label :title, 'Give your video a title'
   .controls
     .input-prepend
       %span.add-on
         %i.icon-user
-      = f.text_field :title, :class => "form-field video-title-field"
+      = f.text_field :title, :class => "form-field video-title-field small-text-field"
       
   = f.label :description
   = f.text_area :description, rows:"5", :class => "span7"
   
-  = f.label :url, 'URL'
+  = f.label :url, 'URL of the video'
   .controls
     .input-prepend
       %span.add-on
         %i.icon-globe
-      = f.text_field :url, :class => "form-field"
+      = f.text_field :url, :class => "form-field small-text-field"
   
   .provider-form
     Provider
@@ -34,10 +34,10 @@
       = radio_button :video, :provider, 'youtube', checked:true
       Youtube
   
-  Category
+  %span.category-text Category
   %span.category-form= collection_select(:video, :category_id, Category.all, :id, :name, :include_blank => true)
 
-  .form-actions
+  .actions
     = f.submit "Add video", :class => "btn btn-info btn-large", "data-disable-with"=> "Just a moment..."
   
   

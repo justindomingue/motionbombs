@@ -1,19 +1,19 @@
 = form_for @help do |f|
-  = f.label :name, 'Your Full Name:'
+  = f.label :name, 'Your Full Name'
   .controls
     .input-prepend
       %span.add-on
         %i.icon-user
-      = f.text_field :name, :class => "form-field"
+      = f.text_field :name, :class => "form-field small-text-field"
 
-  = f.label :email, "Email Adress:"
+  = f.label :email, "Email Adress"
   .controls
     .input-prepend
       %span.add-on
         %i.icon-envelope
-      = f.text_field :email, :class => "form-field"
+      = f.text_field :email, :class => "form-field small-text-field"
       
-  = f.label :message, "Your message:"
+  = f.label :message, "Your message"
   = f.text_area :message, rows:"5", :class => "span7"
   %br
   
