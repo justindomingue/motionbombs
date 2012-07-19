@@ -15,10 +15,10 @@ body { padding-top: 60px; }
 
 // And finally bootswatch style itself
 @import "bootswatch/journal/bootswatch";
-
+.small-text-field { width: 130px;}
 @import "video";
 @import "form";
-
+.small-text-field { width: 130px;}
 a { 
   text-decoration:none;
   &:hover {
