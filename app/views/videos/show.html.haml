@@ -1,14 +1,51 @@
-= @video.title
-%br
-= @video.description
-%br
-- if current_user
-  #like
-    = render 'likes/like_button', :video => @video
-#like_count
-  = @video.likes.count
-%br
-Views :
-= @video.views
-%br
-= send('format_for_' + @video.provider.downcase, @video.provider_video_id)
+.row-fluid
+  #video_title
+    %h1= @video.title
+  .video-box
+    .video
+      = format_for_youtube(@video.provider_video_id)
+
+.row           
+  %ul.thumbnails
+    %li.span3
+      %a.thumbnail{href:"#"}
+        %img{src:"http://placehold.it/260x180", alt:""}
+    %li.span3
+      %a.thumbnail{href:"#"}
+        %img{src:"http://placehold.it/260x180", alt:""}
+    %li.span3
+      %a.thumbnail{href:"#"}
+        %img{src:"http://placehold.it/260x180", alt:""}
+    %li.span3
+      %a.thumbnail{href:"#"}
+        %img{src:"http://placehold.it/260x180", alt:""}
+
+.row-fluid
+  %ul.thumbnails
+    %li.span3
+      %a.thumbnail{href:"#"}
+        %img{src:"http://placehold.it/260x180", alt:""}
+    %li.span3
+      %a.thumbnail{href:"#"}
+        %img{src:"http://placehold.it/260x180", alt:""}
+    %li.span3
+      %a.thumbnail{href:"#"}
+        %img{src:"http://placehold.it/260x180", alt:""}
+    %li.span3
+      %a.thumbnail{href:"#"}
+        %img{src:"http://placehold.it/260x180", alt:""}
+
+.row
+  %ul.thumbnails
+    %li.span3
+      %a.thumbnail{href:"#"}
+        %img{src:"http://placehold.it/260x180", alt:""}
+    %li.span3
+      %a.thumbnail{href:"#"}
+        %img{src:"http://placehold.it/260x180", alt:""}
+    %li.span3
+      %a.thumbnail{href:"#"}
+        %img{src:"http://placehold.it/260x180", alt:""}
+    %li.span3
+      %a.thumbnail{href:"#"}
+        %img{src:"http://placehold.it/260x180", alt:""}

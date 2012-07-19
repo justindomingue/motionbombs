@@ -16,13 +16,14 @@ body { padding-top: 60px; }
 // And finally bootswatch style itself
 @import "bootswatch/journal/bootswatch";
 
+@import "video";
 @import "form";
 
 a { 
   text-decoration:none;
   &:hover {
     text-decoration: none;
-    color: orange;
+    color: #0088cc;
   }
 }
 .page-header { 
@@ -55,5 +56,9 @@ a {
   -webkit-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
      -moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
           box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+  }
 }
-}
+
+.alert { width: 50%; margin:auto; margin-bottom: 20px;}
+.margin-top-2 { margin-top: 2px;}
+.form-alert { margin-left: 0px;}

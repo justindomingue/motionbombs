@@ -14,11 +14,11 @@
       = f.text_field :email, :class => "form-field"
       
   = f.label :message, "Your message:"
-  = f.text_area :message, rows:"5", cols:"30"
+  = f.text_area :message, rows:"5", :class => "span7"
   %br
   
   .form-actions
-    .alert.alert-error
+    .alert.alert-error.form-alert
       %p
         %strong Please, do not ask questions about Stop Motions. 
         If it's what you want, visit the guides section and/or the videos.

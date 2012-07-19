@@ -1,4 +1,4 @@
-= form_for @video do |f|
+= form_for @video, :class => "form-horizontal" do |f|
   - if @video.errors.any?
     .error_explanation
       %h2= pluralize(@video.errors.count, "error")
@@ -7,28 +7,37 @@
       %ul
         - @video.errors.full_messages.each do |msg|
           %li= msg
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :description
-    = f.text_area :description, rows:"5", cols:"30"
-  %br
-  .field
-    = f.label :url, 'URL'
-    = f.text_field :url
-  %br
-  .field
+          
+  = f.label :title, 'Give your video a title :'
+  .controls
+    .input-prepend
+      %span.add-on
+        %i.icon-user
+      = f.text_field :title, :class => "form-field video-title-field"
+      
+  = f.label :description
+  = f.text_area :description, rows:"5", :class => "span7"
+  
+  = f.label :url, 'URL'
+  .controls
+    .input-prepend
+      %span.add-on
+        %i.icon-globe
+      = f.text_field :url, :class => "form-field"
+  
+  .provider-form
     Provider
-    .well
-      Vimeo
+    .provider-radio-form
       = radio_button :video, :provider, 'vimeo'
+      Vimeo
+      %br
+      = radio_button :video, :provider, 'youtube', checked:true
       Youtube
-      = radio_button :video, :provider, 'youtube' 
-  %br
-  .field
-    Category
-    = collection_select(:video, :category_id, Category.all, :id, :name, :include_blank => true)
-  %br
-  .actions
-    = f.submit "Add video"
+  
+  Category
+  %span.category-form= collection_select(:video, :category_id, Category.all, :id, :name, :include_blank => true)
+
+  .form-actions
+    = f.submit "Add video", :class => "btn btn-info btn-large", "data-disable-with"=> "Just a moment..."
+  
+  

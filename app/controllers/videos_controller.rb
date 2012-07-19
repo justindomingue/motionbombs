@@ -3,7 +3,7 @@ class VideosController < ApplicationController
   before_filter :increment_views, :only => :show
   
   def index
-    @videos = Video.all
+    @videos = Video.last(20)
   end
   
   def show

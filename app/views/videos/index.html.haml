@@ -3,92 +3,41 @@
   %small Browse, watch, add and learn.
 
 .row
-  %ul.thumbnails
-    %li.span3
-      .thumbnail
-        %a{href:"#"}
-          %img{src:"http://placehold.it/260x180", alt:""}
-        .thumb_info
-          %h5= truncate("Dot. The world smallest stop motion", length:25)
-          %p
-            %i.icon-eye-open
-            11
-            %i.icon-heart
-            1
-    %li.span3
-      .thumbnail
-        %a{href:"#"}
-          %img{src:"http://placehold.it/260x180", alt:""}
-        .thumb_info
-          %h5 Dog and cat
-          %p
-            %i.icon-eye-open
-            90
-            %i.icon-heart
-            10
-    %li.span3
-      .thumbnail
-        %a{href:"#"}
-          %img{src:"http://placehold.it/260x180", alt:""}
-        .thumb_info
-          %h5 Human spinball
-          %p
-            %i.icon-eye-open
-            994
-            %i.icon-heart
-            4
-    %li.span3
-      .thumbnail
-        %a{href:"#"}
-          %img{src:"http://placehold.it/260x180", alt:""}
-        .thumb_info
-          %h5 Food cortesy
-          %p
-            %i.icon-eye-open
-            %span.views 1474
-            %i.icon-heart
-            134
-.row            
-  %ul.thumbnails
-    %li.span3
-      %a.thumbnail{href:"#"}
-        %img{src:"http://placehold.it/260x180", alt:""}
-    %li.span3
-      %a.thumbnail{href:"#"}
-        %img{src:"http://placehold.it/260x180", alt:""}
-    %li.span3
-      %a.thumbnail{href:"#"}
-        %img{src:"http://placehold.it/260x180", alt:""}
-    %li.span3
-      %a.thumbnail{href:"#"}
-        %img{src:"http://placehold.it/260x180", alt:""}
-
+  %ul.thumbnails            
+    - @videos[0..3].each do |v|
+      %li.span3
+        .thumbnail
+          = link_to image_tag(v.thumb, size:"260x145"), video_path(v)
+          .thumb_info
+            %h5= v.title
+            %p
+              %i.icon-eye-open
+              = v.views
+              %i.icon-heart
+              = v.likes.count
 .row
-  %ul.thumbnails
-    %li.span3
-      %a.thumbnail{href:"#"}
-        %img{src:"http://placehold.it/260x180", alt:""}
-    %li.span3
-      %a.thumbnail{href:"#"}
-        %img{src:"http://placehold.it/260x180", alt:""}
-    %li.span3
-      %a.thumbnail{href:"#"}
-        %img{src:"http://placehold.it/260x180", alt:""}
-    %li.span3
-      %a.thumbnail{href:"#"}
-        %img{src:"http://placehold.it/260x180", alt:""}
-
+  %ul.thumbnails            
+    - @videos[4..7].each do |v|
+      %li.span3
+        .thumbnail
+          = link_to image_tag(v.thumb, size:"260x145"), video_path(v)
+          .thumb_info
+            %h5= v.title
+            %p
+              %i.icon-eye-open
+              = v.views
+              %i.icon-heart
+              = v.likes.count
 .row
-  %ul.thumbnails
-    %li.span3
-      %a.thumbnail{href:"#"}
-        %img{src:"http://placehold.it/260x180", alt:""}
-    %li.span3
-      %a.thumbnail{href:"#"}
-        %img{src:"http://placehold.it/260x180", alt:""}
-    %li.span3
-      %a.thumbnail{href:"#"}
-        %img{src:"http://placehold.it/260x180", alt:""}
-    %li.span3
-      %a.thumbnail{href:"#"}
-        %img{src:"http://placehold.it/260x180", alt:""}
+  %ul.thumbnails            
+    - @videos[8..11].each do |v|
+      %li.span3
+        .thumbnail
+          = link_to image_tag(v.thumb, size:"260x145"), video_path(v)
+          .thumb_info
+            %h5= v.title
+            %p
+              %i.icon-eye-open
+              = v.views
+              %i.icon-heart
+              = v.likes.count

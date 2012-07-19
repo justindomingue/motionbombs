@@ -10,3 +10,8 @@
         = link_to 'Login with Twitter', auth_at_provider_path(:provider => :twitter)
         %hr
         = render 'form'
+        %hr
+        %p.member-already
+          %i.icon-user.margin-top-2
+          Not a member?
+          = link_to "Sign up here", signup_path
