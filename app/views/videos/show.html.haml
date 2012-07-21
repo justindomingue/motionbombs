@@ -7,18 +7,24 @@
       %iframe{id:'ytplayer', type:'text/html', width:'480', height:'360', src:"http://www.youtube.com/embed/#{@video.provider_video_id}?&rel=0&theme=light&showinfo=0&hd=1&autohide=1&color=white", frameborder:'0'}
   .span6
     .well
-      %p
-        From 
-        %span.label.label-important Youtube
-      %p
-        Uploaded by
-        %span.label.label-info= @video.user.username
-      %p
-        Submitted in
-        %span.label.label-warning= @video.category.name
-      %p
-        Added
-        %span.label.label-inverse= @video.created_at.strftime("%b %d, %I:%M %p")
+      .row-fluid
+        .span6
+          %p
+            From 
+            %span.label.label-important Youtube
+          %p
+            Uploaded by
+            %span.label.label-info= @video.user.username
+          %p
+            Submitted in
+            %span.label.label-warning= @video.category.name
+          %p
+            Added
+            %span.label.label-inverse= @video.created_at.strftime("%b %d, %I:%M %p")
+        .span6
+          %p
+            #like= render 'likes/like_button', :video => @video
+            #like_count=
       %hr
       %p
         %span.label.label-default= @video.title

@@ -1,8 +1,12 @@
-- if like = current_user.likes.find_by_video_id(@video.id)
+- if !current_user
+  %a.btn.btn-warning.btn-mini.disabled
+    %i.icon-heart.icon-white
+    Like
+- elsif like = current_user.likes.find_by_video_id(@video.id)
   = form_for like, :html => { :method => :delete}, :remote => true do |f|
-    = f.submit "Unlike"
+    = f.submit "Unlike", :class => "btn btn-warning btn-mini", "data-disable-with"=> "Just a moment..."
 - else
   = form_for current_user.likes.build(:video_id => @video.id), :remote => true do |f|
     = f.hidden_field :video_id
     = f.hidden_field :user_id
-    = f.submit "Like"
+    = f.submit "Like", :class => "btn btn-warning btn-mini", "data-disable-with"=> "Just a moment..."
