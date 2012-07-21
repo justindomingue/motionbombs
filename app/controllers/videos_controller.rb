@@ -8,6 +8,7 @@ class VideosController < ApplicationController
   
   def show
     @video = Video.find(params[:id])
+    @suggestions = Category.find(@video.category_id).videos
   end
   
   def new

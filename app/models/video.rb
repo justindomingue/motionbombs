@@ -6,14 +6,14 @@ class Video < ActiveRecord::Base
   has_many :visits
   
   before_create do |video|
-    video.title.capitalize!
+    # video.title.capitalize!
     video.description.capitalize!
     video.provider.capitalize!
   end
   
   validates :title, :thumb, :provider_video_id, :provider, :user_id, :presence => true
   validates :title, :length => { :maximum => 35 }
-  validates :description, :length => { :maximum => 200 }
+  validates :description, :length => { :maximum => 500 }
   validates :thumb, :format => { :with => /http:\/\/.+\.[jpg|png|gif]/i}
   validates :views, :numericality => { :only_integer => true }
   

@@ -1,51 +1,33 @@
-.row-fluid
-  #video_title
-    %h1= @video.title
-  .video-box
+#video-title
+  %h1= @video.title
+  %hr
+.row-fluid.video
+  .span6
     .video
-      = format_for_youtube(@video.provider_video_id)
-
-.row           
+      %iframe{id:'ytplayer', type:'text/html', width:'480', height:'360', src:"http://www.youtube.com/embed/#{@video.provider_video_id}?&rel=0&theme=light&showinfo=0&hd=1&autohide=1&color=white", frameborder:'0'}
+  .span6
+    .well
+      %p
+        From 
+        %span.label.label-important Youtube
+      %p
+        Uploaded by
+        %span.label.label-info= @video.user.username
+      %p
+        Submitted in
+        %span.label.label-warning= @video.category.name
+      %p
+        Added
+        %span.label.label-inverse= @video.created_at.strftime("%b %d, %I:%M %p")
+      %hr
+      %p
+        %span.label.label-default= @video.title
+      %p
+        = @video.description
+%h3 You might also like
+%hr
+.row  
   %ul.thumbnails
-    %li.span3
-      %a.thumbnail{href:"#"}
-        %img{src:"http://placehold.it/260x180", alt:""}
-    %li.span3
-      %a.thumbnail{href:"#"}
-        %img{src:"http://placehold.it/260x180", alt:""}
-    %li.span3
-      %a.thumbnail{href:"#"}
-        %img{src:"http://placehold.it/260x180", alt:""}
-    %li.span3
-      %a.thumbnail{href:"#"}
-        %img{src:"http://placehold.it/260x180", alt:""}
-
-.row-fluid
-  %ul.thumbnails
-    %li.span3
-      %a.thumbnail{href:"#"}
-        %img{src:"http://placehold.it/260x180", alt:""}
-    %li.span3
-      %a.thumbnail{href:"#"}
-        %img{src:"http://placehold.it/260x180", alt:""}
-    %li.span3
-      %a.thumbnail{href:"#"}
-        %img{src:"http://placehold.it/260x180", alt:""}
-    %li.span3
-      %a.thumbnail{href:"#"}
-        %img{src:"http://placehold.it/260x180", alt:""}
-
-.row
-  %ul.thumbnails
-    %li.span3
-      %a.thumbnail{href:"#"}
-        %img{src:"http://placehold.it/260x180", alt:""}
-    %li.span3
-      %a.thumbnail{href:"#"}
-        %img{src:"http://placehold.it/260x180", alt:""}
-    %li.span3
-      %a.thumbnail{href:"#"}
-        %img{src:"http://placehold.it/260x180", alt:""}
-    %li.span3
-      %a.thumbnail{href:"#"}
-        %img{src:"http://placehold.it/260x180", alt:""}
+    - @suggestions.each do |s|
+      %li.span3= link_to image_tag(s.thumb, size:'200x200'), videos_path(s), class:"thumbnail"
+  
