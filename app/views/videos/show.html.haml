@@ -22,9 +22,13 @@
             Added
             %span.label.label-inverse= @video.created_at.strftime("%b %d, %I:%M %p")
         .span6
-          %p
-            #like= render 'likes/like_button', :video => @video
-            #like_count=
+          #like= render 'likes/like_button', :video => @video
+          #like_count
+            = @video.likes.count
+            likes
+          %span
+            = @video.views
+            views
       %hr
       %p
         %span.label.label-default= @video.title
