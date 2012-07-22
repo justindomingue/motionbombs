@@ -1,8 +1,19 @@
-.video { margin:auto;  margin-bottom: 2%; display: inline-block;
-    *display:inline; /* ie7 fix */
-    float: none; /* this is the part that makes it work */}
+#video { 
+  margin:auto;
+  margin-bottom: 2%;
+  display: inline-block;
+  *display:inline; /* ie7 fix */
+  float: none; /* this is the part that makes it work */
+  
+  iframe {
+    
+  }
+}
 
 #video-title { 
   text-align: center;
   margin-bottom: 1%;
 }
+
+#like { float: left; margin-right: 4px;}
+#views { width: 100%; height: 100%;}
