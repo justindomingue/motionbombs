@@ -2,42 +2,19 @@
   %h1 The ultimate resource for stop-motion
   %small Browse, watch, add and learn.
 
-.row
-  %ul.thumbnails            
-    - @videos[0..3].each do |v|
-      %li.span3
-        .thumbnail
-          = link_to image_tag(v.thumb, size:"260x145"), video_path(v)
-          .thumb_info
-            %h5= v.title
-            %p
-              %i.icon-eye-open
-              = v.views
-              %i.icon-heart
-              = v.likes.count
-.row
-  %ul.thumbnails            
-    - @videos[4..7].each do |v|
-      %li.span3
-        .thumbnail
-          = link_to image_tag(v.thumb, size:"260x145"), video_path(v)
-          .thumb_info
-            %h5= v.title
-            %p
-              %i.icon-eye-open
-              = v.views
-              %i.icon-heart
-              = v.likes.count
-.row
-  %ul.thumbnails            
-    - @videos[8..11].each do |v|
-      %li.span3
-        .thumbnail
-          = link_to image_tag(v.thumb, size:"260x145"), video_path(v)
-          .thumb_info
-            %h5= v.title
-            %p
-              %i.icon-eye-open
-              = v.views
-              %i.icon-heart
-              = v.likes.count
+- n = 0
+- while n+4 < @videos.count do
+  .row
+    %ul.thumbnails            
+      - @videos[n..n+3].each do |v|
+        %li.span3
+          .thumbnail
+            = link_to image_tag(v.thumb, size:"260x145"), video_path(v)
+            .thumb_info
+              %h5= v.title
+              %p
+                %i.icon-eye-open
+                = v.views
+                %i.icon-heart
+                = v.likes.count
+  - n += 4
