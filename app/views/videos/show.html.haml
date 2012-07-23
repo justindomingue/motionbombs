@@ -2,14 +2,14 @@
   %h1= @video.title
   %hr
 .row-fluid.video
-  .span6
+  .span7
     .video
       %iframe{id:'ytplayer', :width => 480, :height => 360, src:"http://www.youtube.com/embed/#{@video.provider_video_id}?&rel=0&theme=light&showinfo=0&hd=1&autohide=1&color=white", frameborder:'0'}
-  .span6
+  .span5
     .well
       %p
         From 
-        %span.label.label-important Youtube
+        %span.label.label-important= @video.provider
       %p
         Uploaded by
         %span.label.label-info.tooltip-right{title:"User"}= @video.user.username
@@ -27,14 +27,17 @@
           = pluralize(@video.views, "view")
       %hr
       %p
-        %span.label.label-default= @video.title
+      %span.label.label-default= @video.title
       %p
         = @video.description
        
-%h3 You might also like
+%h3.smaller YOU MIGHT ALSO LIKE
 %hr
-.row  
-  %ul.thumbnails
-    - @suggestions.each do |s|
-      %li.span3= link_to image_tag(s.thumb, size:'200x200'), videos_path(s), class:"thumbnail"
+- 2.times do |n|
+  .row  
+    %ul.thumbnails
+      - @suggestions[n..n+3].each do |s|
+        %li.span3= link_to image_tag(s.thumb, size:'260x145'), video_path(s), class:"thumbnail"
+.align-right
+  %a{href:"#"} Load more
   

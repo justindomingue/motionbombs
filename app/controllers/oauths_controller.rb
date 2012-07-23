@@ -14,10 +14,10 @@ class OauthsController < ApplicationController
         reset_session # protect from session fixation attack
         auto_login(@user)
         flash[:success] = "Logged in from #{provider.titleize}!"
-        redirect_to root_path 
+        redirect_back_or_to root_path 
       rescue
         flash[:error] = "Failed to login from #{provider.titleize}!"
-        redirect_to root_path
+        redirect_back_or_to root_path
       end
     end
   end
