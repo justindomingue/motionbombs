@@ -1,12 +1,12 @@
 - if !current_user
-  %a.btn.btn-warning.btn-mini
+  %a.btn.btn-danger.btn-mini.tooltip-bottom{title:"log in to like", placement:'bottom'}
     %i.icon-heart.icon-white
-    = pluralize(@video.likes.count, "like")
+    = pluralize(@video.likes.count, 'like')
 - elsif like = current_user.likes.find_by_video_id(@video.id)
   = form_for like, :html => { :method => :delete}, :remote => true do |f|
-    = f.submit pluralize(@video.likes.count, 'like'), :class => "btn btn-warning btn-mini", "data-disable-with"=> "Just a moment..."
+    = f.submit pluralize(@video.likes.count, 'like'), :class => "btn btn-danger btn-mini", "data-disable-with" => "Just a moment..."
 - else
   = form_for current_user.likes.build(:video_id => @video.id), :remote => true do |f|
     = f.hidden_field :video_id
     = f.hidden_field :user_id
-    = f.submit pluralize(@video.likes.count, 'like'), :class => "btn btn-warning btn-mini", "data-disable-with"=> "Just a moment..."
+    = f.submit pluralize(@video.likes.count, 'like'), :class => "btn btn-danger btn-mini", "data-disable-with"=> "Just a moment..."

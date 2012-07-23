@@ -1,13 +1,10 @@
-#video { 
+.video { 
   margin:auto;
   margin-bottom: 2%;
   display: inline-block;
   *display:inline; /* ie7 fix */
   float: none; /* this is the part that makes it work */
-  
-  iframe {
-    
-  }
+  width: 100%;
 }
 
 #video-title { 
