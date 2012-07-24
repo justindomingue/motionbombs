@@ -24,4 +24,16 @@ h3.smaller { size: 0.7em;}
   .submit-form {}
 }
 
-#comment-form { margin-bottom: 30px;}
+.row { margin-left: 0px;}
+
+ul #comments {
+  list-style-type: 
+  none; padding: 0px; 
+  margin: 0px;
+}
+
+.comment-content { margin-bottom: 5px; }
+.comment-info {
+  .comment-username { margin-right: 5px; }
+  .icon-user { margin-top: 1px;}
+}

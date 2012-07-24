@@ -4,9 +4,13 @@
     = pluralize(@video.likes.count, 'like')
 - elsif like = current_user.likes.find_by_video_id(@video.id)
   = form_for like, :html => { :method => :delete}, :remote => true do |f|
-    = f.submit "#{pluralize(@video.likes.count, 'like')} <i class='icon-heart icon-white'/>".html_safe, :class => "btn btn-warning btn-mini"
+    = button_tag(type: 'submit', class:'btn btn-danger btn-mini') do
+      %i.icon-heart.icon-white
+      = pluralize @video.likes.count, 'like'
 - else
   = form_for current_user.likes.build(:video_id => @video.id), :remote => true do |f|
     = f.hidden_field :video_id
     = f.hidden_field :user_id
-    = f.submit pluralize(@video.likes.count, 'like'), :class => "btn btn-danger btn-mini"
+    = button_tag(type: 'submit', class:'btn btn-danger btn-mini') do
+      %i.icon-heart.icon-white
+      = pluralize @video.likes.count, 'like'

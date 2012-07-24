@@ -32,4 +32,12 @@ ActiveAdmin::Dashboards.build do
     end
     strong { link_to "View All Help Tickets", admin_helps_path }
   end
+  
+  section "Recent Video Comments" do
+    table_for VideoComment.order("created_at desc").limit(5) do
+      column("Username") { |v| v.user.username }
+      column :content
+    end
+    strong { link_to "View All Video Comments", admin_video_comments_path }
+  end
 end

@@ -1,1 +1,1 @@
-%li  = video_comment.user.username + ':'  = video_comment.content
+%li  .comment-content    = video_comment.content  .comment-info    %span.label.label-info.comment-username      %i.icon-user.icon-white      = video_comment.user.username    %span.comment-date.label.label-important      = time_ago_in_words(video_comment.created_at)  %hr
