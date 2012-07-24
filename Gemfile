@@ -43,3 +43,5 @@ gem 'sass-rails',   '~> 3.2.3'
 gem 'bootstrap-sass'
 gem 'bootswatch-rails'
 gem 'haml'
+
+gem 'will_paginate'

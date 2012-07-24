@@ -3,7 +3,7 @@ class VideosController < ApplicationController
   before_filter :increment_views, :only => :show
   
   def index
-    @videos = Video.last(20)
+    @videos = Video.paginate(:page => params[:page]).per_page(8)
   end
   
   def show
@@ -33,7 +33,7 @@ class VideosController < ApplicationController
       
     def increment_views
       if current_user
-        Visit.increment_for_user(current_user, params[:id])
+        Visit.increment_for_user(current_user.id, params[:id])
       else
         Visit.increment_for_ip(request.remote_ip, params[:id])
       end
