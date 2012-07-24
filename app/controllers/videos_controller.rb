@@ -3,12 +3,12 @@ class VideosController < ApplicationController
   before_filter :increment_views, :only => :show
   
   def index
-    @videos = Video.paginate(:page => params[:page]).per_page(8)
+    @videos = Video.paginate(:page => params[:page]).per_page(12)
   end
   
   def show
     @video = Video.find(params[:id])
-    @suggestions = Category.find(@video.category_id).videos
+    @suggestions = Category.find(@video.category_id).videos.last(5)
   end
   
   def new
