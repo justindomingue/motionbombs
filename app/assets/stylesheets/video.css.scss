@@ -18,3 +18,10 @@
 h3.smaller { size: 0.7em;}
 
 .pagination { display: none;}
+.form-fields {
+  textarea { width: 100%;}
+  .comment-content { width: 97%;}
+  .submit-form {}
+}
+
+#comment-form { margin-bottom: 30px;}

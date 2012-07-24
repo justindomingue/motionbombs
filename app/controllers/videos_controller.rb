@@ -8,6 +8,7 @@ class VideosController < ApplicationController
   
   def show
     @video = Video.find(params[:id])
+    @comments = VideoComment.last 3
     @suggestions = Category.find(@video.category_id).videos.last(5)
   end
   

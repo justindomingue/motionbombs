@@ -30,16 +30,28 @@
         %span.label.label-default.label-title= @video.title
       %p
         = @video.description
-       
-%h3.smaller YOU MIGHT ALSO LIKE
-%hr
-- n = 0
-- while n+4 < @suggestions.count do
-  .row  
-    %ul.thumbnails
-      - @suggestions[n..n+3].each do |s|
-        %li.span3= link_to image_tag(s.thumb, size:'260x145'), video_path(s), class:"thumbnail"
-  - n += 4
-.align-right
-  %a{href:"#"} Load more
+
+.comments
+  %h3.smaller COMMENTS ON THE VIDEO
+  %hr
+  .well
+    - if current_user
+      #comment-form
+        = render 'video_comments/comment_form'
+    %ul
+      #comments
+        = render @comments        
+
+.suggestions
+  %h3.smaller YOU MIGHT ALSO LIKE
+  %hr
+  - n = 0
+  - while n+4 < @suggestions.count do
+    .row  
+      %ul.thumbnails
+        - @suggestions[n..n+3].each do |s|
+          %li.span3= link_to image_tag(s.thumb, size:'260x145'), video_path(s), class:"thumbnail"
+    - n += 4
+  .align-right
+    %a{href:"#"} Load more
   

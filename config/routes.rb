@@ -7,6 +7,7 @@ Motionbombs::Application.routes.draw do
   
   # Likes routes
   resources :likes, :only => [:create, :destroy]
+  resources :video_comments, :only => [:create, :destroy]
   
   # Authentication routes
   get 'login'  => 'user_sessions#new', :as => :login

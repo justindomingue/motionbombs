@@ -4,6 +4,7 @@ class Video < ActiveRecord::Base
   belongs_to :category
   has_many :likes
   has_many :visits
+  has_many :video_comments
   
   before_create do |video|
     # video.title.capitalize!

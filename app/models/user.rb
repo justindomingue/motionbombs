@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :videos
   has_many :likes
   has_many :visits
+  has_many :video_comments
   has_many :authentications, :dependent => :destroy
   accepts_nested_attributes_for :authentications
   
