@@ -30,7 +30,7 @@
       .input-prepend
         %span.add-on
           %i.icon-lock
-        = password_field_tag :password, nil, :class => "form-field small-text-field" 
+        = f.password_field :password, :class => "form-field small-text-field" 
   
   .field
     = f.label :password_confirmation
@@ -38,7 +38,7 @@
       .input-prepend
         %span.add-on
           %i.icon-lock
-        = password_field_tag :password_confirmation, nil, :class => "form-field small-text-field" 
+        = f.password_field :password_confirmation, :class => "form-field small-text-field" 
   %br
   
   .actions
