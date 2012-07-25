@@ -8,7 +8,7 @@ class VideosController < ApplicationController
   
   def show
     @video = Video.find(params[:id])
-    @comments = VideoComment.last(5).reverse
+    @comments = @video.video_comments.order(:created_at).limit(5)
   end
   
   def new

@@ -41,4 +41,8 @@
           = render 'video_comments/comment_form'
       %ul
         #comments
-          = render @comments
+          - if @comments.empty?
+            %li No comments yet.
+            %br
+          - else
+            = render @comments
