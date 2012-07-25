@@ -85,15 +85,15 @@ Rails.application.config.sorcery.configure do |config|
   #
   config.twitter.key = "LzQOE1OtnX7Po5fRMJBVIA"
   config.twitter.secret = "pwUvLYAGJ3USXiVf0HpRtEWTGObXT9R0up5cSWxcU4"
-  config.twitter.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=twitter"
+  config.twitter.callback_url = "http://motionbombs.herokuapp.com//oauth/callback?provider=twitter"
   config.twitter.user_info_mapping = {:username => "screen_name"}
   #
-  #config.facebook.key = "<your key here>"
-  #config.facebook.secret = "<your key here>"
-  #config.facebook.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=facebook"
-  #config.facebook.user_info_mapping = {:email => "email", :name => "name", :username => "username", :hometown => "hometown/name"} #etc
-  #config.facebook.scope = "email,offline_access,user_hometown,user_interests,user_likes" #etc
-  #config.facebook.display = "popup"
+  config.facebook.key = "401241139937864"
+  config.facebook.secret = "fe5f6cbf5abf15ff213b8fcb6310114a"
+  config.facebook.callback_url = "http://motionbombs.herokuapp.com//oauth/callback?provider=facebook"
+  config.facebook.user_info_mapping = {:email => "email", :name => "name", :username => "username"} #etc
+  config.facebook.scope = "email,offline_access,user_hometown,user_interests,user_likes" #etc
+  config.facebook.display = "popup"
   #
   # config.github.key = ""
   # config.github.secret = ""
