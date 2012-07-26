@@ -29,7 +29,10 @@
       %p
         %span.label.label-default.label-title= @video.title
       %p
-        = @video.description
+        - if @video.description.empty?
+          %span.light-text No description provided
+        - else
+          = @video.description
 
 .row
   .section.section-large
