@@ -91,7 +91,7 @@ Rails.application.config.sorcery.configure do |config|
   config.facebook.key = "401241139937864"
   config.facebook.secret = "fe5f6cbf5abf15ff213b8fcb6310114a"
   config.facebook.callback_url = "http://motionbombs.herokuapp.com/oauth/callback?provider=facebook"
-  config.facebook.user_info_mapping = {:email => "email", :name => "name", :username => "username"} #etc
+  config.facebook.user_info_mapping = {:email => "email", :username => "username"} #etc
   config.facebook.scope = "email,offline_access" #etc
   config.facebook.display = "popup"
   #
