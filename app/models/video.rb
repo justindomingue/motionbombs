@@ -30,6 +30,6 @@ class Video < ActiveRecord::Base
   end
   
   def self.get_thumb_from_youtube(provider_video_id)
-    "http://img.youtube.com/vi/#{provider_video_id}/2.jpg"
+    "http://img.youtube.com/vi/#{provider_video_id}/0.jpg"
   end
 end
