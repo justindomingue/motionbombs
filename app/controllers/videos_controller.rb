@@ -16,11 +16,12 @@ class VideosController < ApplicationController
   end
   
   def create
-    method = 'get_' + params[:video][:provider] + '_video_id'
-    params[:video][:provider_video_id] = Video.send(method, params[:video][:url])
+    params[:video][:provider] = 'Youtube'
+    params[:video][:provider_video_id] = Video.get_youtube_video_id(params[:video][:url])
     params[:video][:thumb] = Video.get_thumb_from_youtube(params[:video][:provider_video_id])
     params[:video][:views] = 0    
     params[:video][:user_id] = current_user
+    
     @video = Video.new(params[:video])
     if @video.save
       redirect_to video_path(@video), notice:'Video added successfully.'

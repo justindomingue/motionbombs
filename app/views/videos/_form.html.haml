@@ -25,14 +25,9 @@
         %i.icon-globe
       = f.text_field :url, :class => "form-field small-text-field"
   
-  .provider-form
-    Provider
-    .provider-radio-form
-      = radio_button :video, :provider, 'youtube', checked:true
-      Youtube
-  
-  %span.category-text Category
-  %span.category-form= collection_select(:video, :category_id, Category.all, :id, :name, :include_blank => true)
+  .category
+    %span.category-text Category
+    %span.category-form= collection_select(:video, :category_id, Category.all, :id, :name, :include_blank => true)
 
   .actions
     = f.submit "Add video", :class => "btn btn-info btn-large", "data-disable-with"=> "Just a moment..."
