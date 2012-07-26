@@ -20,7 +20,7 @@ class VideosController < ApplicationController
     params[:video][:provider_video_id] = Video.get_youtube_video_id(params[:video][:url])
     params[:video][:thumb] = Video.get_thumb_from_youtube(params[:video][:provider_video_id])
     params[:video][:views] = 0    
-    params[:video][:user_id] = current_user
+    params[:video][:user_id] = current_user.id
     
     @video = Video.new(params[:video])
     if @video.save
