@@ -18,4 +18,18 @@ ActiveAdmin.register Video do
   filter :provider
   filter :views
   filter :created_at
+  
+  form do |f|
+    f.inputs "Details" do
+      f.input :user
+      f.input :category
+      f.input :title
+      f.input :description
+      f.input :thumb
+      f.input :provider
+      f.input :provider_video_id
+      f.input :views
+      f.buttons
+    end
+  end
 end
