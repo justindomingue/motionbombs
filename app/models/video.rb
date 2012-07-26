@@ -22,11 +22,11 @@ class Video < ActiveRecord::Base
   scope :vimeo, where(provider:"vimeo")
   
   def self.get_youtube_video_id(provider_url)
-    provider_url.scan(/youtube.com\/.+v=([a-zA-Z0-9-]+)\/?/).flatten.to_s.gsub(/\W+/, '') if provider_url.index 'youtube'
+    provider_url.scan(/youtube.com\/.+v=([a-zA-Z0-9-]+)\/?/).flatten.to_s.gsub('[', '').gsub(']', '').gsub('"', '') if provider_url.index 'youtube'
   end
   
   def self.get_vimeo_video_id(provider_url)
-    provider_url.scan(/vimeo.com\/(\d+)\/?/).flatten.to_s.gsub(/\W+/, '') if provider_url.index('vimeo')
+    provider_url.scan(/vimeo.com\/(\d+)\/?/).flatten.to_s if provider_url.index('vimeo')
   end
   
   def self.get_thumb_from_youtube(provider_video_id)
