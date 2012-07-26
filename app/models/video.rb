@@ -8,7 +8,7 @@ class Video < ActiveRecord::Base
   
   before_create do |video|
     # video.title.capitalize!
-    video.description.capitalize!
+    #video.description.capitalize!
     video.provider.capitalize!
   end
   

@@ -58,9 +58,13 @@ a {
   }
 }
 
-.alert { width: 50%; margin:auto; margin-bottom: 20px;}
+.alert { width: 50%; margin:auto; margin-bottom: 20px; text-align: center;}
 .margin-top-2 { margin-top: 2px;}
 .align-right { text-align: right;}
 .form-alert { margin-left: 0px; width: 90%;}
 
 footer p { padding: 0 20px 20px;}
+.label-login a {
+  color: white;
+  &:hover { color:white;}
+}

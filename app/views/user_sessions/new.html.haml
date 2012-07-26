@@ -8,9 +8,9 @@
             = link_to 'Sign up →', signup_path
       .section-body
         Login with
-        = link_to 'Facebook', auth_at_provider_path(:provider => :facebook)
+        %span.label.label-info.label-login= link_to 'Facebook', auth_at_provider_path(:provider => :facebook)
         or 
-        = link_to 'Twitter', auth_at_provider_path(:provider => :twitter)
+        %span.label.label-info.label-login= link_to 'Twitter', auth_at_provider_path(:provider => :twitter)
         %hr
         = render 'form'
         %hr
