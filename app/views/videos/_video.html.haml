@@ -2,7 +2,7 @@
   .thumbnail
     = link_to image_tag(video.thumb, size:"260x145"), video_path(video)
     .thumb_info
-      %h5= video.title
+      %h5= truncate video.title, length:25
       %p
         %i.icon-eye-open
         = video.views
