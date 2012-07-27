@@ -30,6 +30,35 @@ class VideosController < ApplicationController
     end
   end
   
+  def browse
+    @categories = Category.all
+    
+    if params[:trending]
+      @filter = params[:trending]
+      if params[:trending] == 'views'
+        @videos = Video.most_viewed
+      elsif params[:trending] == 'likes'
+      elsif params[:trending] == 'comments'
+        @videos = VideoComment.order()
+      elsif params[:trending] == 'popular'
+        @filter = "popular this week"
+        @videos = Video.this_week.most_viewed
+      end
+    elsif params[:category]
+      @filter = params[:category]
+      @videos = Category.find_by_name(params[:category]).videos
+    elsif params[:date]
+      @filter = params[:date]
+      if params[:date] == 'newest'
+        @videos = Video.last 12
+      elsif params[:date] == 'oldest'
+        @videos = Video.first 12
+      end
+    else
+      @videos = Video.last(12)
+    end
+  end
+  
   private
       
     def increment_views

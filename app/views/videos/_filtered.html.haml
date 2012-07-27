@@ -1,0 +1,11 @@
+%li.span2
+  .thumbnail
+    = link_to image_tag(filtered.thumb, size:"260x145"), video_path(filtered)
+    .thumb_info
+      %h5= truncate filtered.title, length:12
+      %p
+        = filtered.views
+        %i.icon-eye-open.video-counts
+        
+        = filtered.likes.count
+        %i.icon-heart.video-counts

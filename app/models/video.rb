@@ -22,6 +22,9 @@ class Video < ActiveRecord::Base
   scope :youtube, where(provider:"youtube")
   scope :vimeo, where(provider:"vimeo")
   
+  scope :most_viewed, order('views DESC')
+  scope :this_week, where(["created_at < ?", Time.now])
+  
   def self.get_youtube_video_id(provider_url)
     provider_url.scan(/youtube.com\/.+v=([a-zA-Z0-9-]+)\/?/).flatten.to_s.gsub('[', '').gsub(']', '').gsub('"', '') if provider_url.index 'youtube'
   end

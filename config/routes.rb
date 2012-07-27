@@ -4,6 +4,7 @@ Motionbombs::Application.routes.draw do
 
   # Video routes
   resources :videos
+  match 'browse' => 'videos#browse', :as => :browse
   
   # Likes routes
   resources :likes, :only => [:create, :destroy]
