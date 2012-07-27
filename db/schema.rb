@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120724180722) do
+ActiveRecord::Schema.define(:version => 20120727000359) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string    "resource_id",   :null => false
@@ -111,6 +111,7 @@ ActiveRecord::Schema.define(:version => 20120724180722) do
     t.timestamp "updated_at",        :null => false
     t.integer   "user_id"
     t.integer   "category_id"
+    t.string    "creator"
   end
 
   add_index "videos", ["category_id", "created_at"], :name => "index_videos_on_category_id_and_created_at"

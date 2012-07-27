@@ -1,5 +1,5 @@
 class Video < ActiveRecord::Base
-  attr_accessible :id, :url, :title, :description, :thumb, :provider_video_id, :provider, :views, :likes, :user_id, :category_id
+  attr_accessible :id, :url, :title, :description, :thumb, :provider_video_id, :provider, :views, :likes, :user_id, :category_id, :creator
   belongs_to :user
   belongs_to :category
   has_many :likes
@@ -14,6 +14,7 @@ class Video < ActiveRecord::Base
   
   validates :title, :thumb, :provider_video_id, :provider, :user_id, :presence => true
   validates :title, :length => { :maximum => 50 }
+  validates :creator, :length => { :in => 2..30 }
   validates :description, :length => { :maximum => 500 }
   validates :thumb, :format => { :with => /http:\/\/.+\.[jpg|png|gif]/i}
   validates :views, :numericality => { :only_integer => true }

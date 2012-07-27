@@ -11,8 +11,11 @@
         From 
         %span.label.label-important= @video.provider
       %p
+        Created by
+        %span.label.label-success.tooltip-right{title:"Creator"}= @video.creator
+      %p
         Uploaded by
-        %span.label.label-info.tooltip-right{title:"User"}= @video.user.username
+        %span.label.label-info.tooltip-right{title:"Uploader"}= @video.user.username
       %p
         Submitted in
         %span.label.label-warning.tooltip-right{title:"Category"}= @video.category.name
