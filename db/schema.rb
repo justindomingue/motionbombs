@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120727000359) do
+ActiveRecord::Schema.define(:version => 20120727184854) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string    "resource_id",   :null => false
@@ -91,27 +91,29 @@ ActiveRecord::Schema.define(:version => 20120727000359) do
   add_index "users", ["remember_me_token"], :name => "index_users_on_remember_me_token"
 
   create_table "video_comments", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "video_id"
-    t.text     "content"
-    t.integer  "mood",       :default => 0
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.integer   "user_id"
+    t.integer   "video_id"
+    t.text      "content"
+    t.integer   "mood",       :default => 0
+    t.timestamp "created_at",                :null => false
+    t.timestamp "updated_at",                :null => false
   end
 
   create_table "videos", :force => true do |t|
-    t.string    "title"
-    t.text      "description"
-    t.string    "thumb"
-    t.integer   "url"
-    t.string    "provider_video_id"
-    t.string    "provider"
-    t.integer   "views"
-    t.timestamp "created_at",        :null => false
-    t.timestamp "updated_at",        :null => false
-    t.integer   "user_id"
-    t.integer   "category_id"
-    t.string    "creator"
+    t.string   "title"
+    t.text     "description"
+    t.string   "thumb"
+    t.integer  "url"
+    t.string   "provider_video_id"
+    t.string   "provider"
+    t.integer  "views"
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
+    t.integer  "user_id"
+    t.integer  "category_id"
+    t.string   "creator"
+    t.integer  "video_comments_count", :default => 0
+    t.integer  "likes_count",          :default => 0
   end
 
   add_index "videos", ["category_id", "created_at"], :name => "index_videos_on_category_id_and_created_at"

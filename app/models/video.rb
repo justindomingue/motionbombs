@@ -23,6 +23,8 @@ class Video < ActiveRecord::Base
   scope :vimeo, where(provider:"vimeo")
   
   scope :most_viewed, order('views DESC')
+  scope :most_liked, order('likes_count DESC')
+  scope :most_commented, order('video_comments_count DESC')
   scope :this_week, where(["created_at < ?", Time.now])
   
   def self.get_youtube_video_id(provider_url)

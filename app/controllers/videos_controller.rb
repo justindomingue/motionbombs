@@ -38,8 +38,9 @@ class VideosController < ApplicationController
       if params[:trending] == 'views'
         @videos = Video.most_viewed
       elsif params[:trending] == 'likes'
+        @videos = Video.most_liked
       elsif params[:trending] == 'comments'
-        @videos = VideoComment.order()
+        @videos = Video.most_commented
       elsif params[:trending] == 'popular'
         @filter = "popular this week"
         @videos = Video.this_week.most_viewed
