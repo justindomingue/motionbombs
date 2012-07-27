@@ -23,6 +23,7 @@ ActiveAdmin.register Video do
     f.inputs "Details" do
       f.input :user
       f.input :category
+      f.input :creator
       f.input :title
       f.input :description
       f.input :thumb
