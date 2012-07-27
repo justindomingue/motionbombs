@@ -21,10 +21,10 @@ ActiveAdmin.register Video do
   
   form do |f|
     f.inputs "Details" do
+      f.input :title
       f.input :user
       f.input :category
       f.input :creator
-      f.input :title
       f.input :description
       f.input :thumb
       f.input :provider
