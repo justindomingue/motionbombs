@@ -7,11 +7,9 @@
         = video.views
         %i.icon-eye-open.video-counts
         
-        - unless video.likes.empty?
-          = video.likes.count
-          %i.icon-heart.video-counts
+        = video.likes.count
+        %i.icon-heart.video-counts
         
-        - unless video.video_comments.empty?
-          = video.video_comments.count
-          %i.icon-comment.video-counts
+        = video.video_comments.count
+        %i.icon-comment.video-counts
           
