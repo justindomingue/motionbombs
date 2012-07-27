@@ -4,7 +4,10 @@
     .thumb_info
       %h5= truncate video.title, length:20
       %p
-        %i.icon-eye-open
+        %i.icon-eye-open.video-counts
         = video.views
-        %i.icon-heart
+        %i.icon-heart.video-counts
         = video.likes.count
+        - unless video.video_comments.empty?
+          %i.icon-comment.video-counts
+          = video.video_comments.count
