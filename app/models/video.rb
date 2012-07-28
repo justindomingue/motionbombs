@@ -31,6 +31,7 @@ class Video < ActiveRecord::Base
     video_id = provider_url.split('v=')[1]
     ampersand_position = video_id.index('&')
     video_id = video_id.split('&')[0] if ampersand_position
+    return video_id
   end
   
   def self.get_vimeo_video_id(provider_url)
