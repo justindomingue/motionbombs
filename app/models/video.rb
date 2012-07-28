@@ -28,7 +28,9 @@ class Video < ActiveRecord::Base
   scope :this_week, where(["created_at < ?", Time.now])
   
   def self.get_youtube_video_id(provider_url)
-    provider_url.scan(/youtube.com\/.+v=([a-zA-Z0-9-]+)\/?/).flatten.to_s.gsub('[', '').gsub(']', '').gsub('"', '') if provider_url.index 'youtube'
+    video_id = provider_url.split('v=')[1]
+    ampersand_position = video_id.index('&')
+    video_id = video_id.split('&')[0] if ampersand_position
   end
   
   def self.get_vimeo_video_id(provider_url)
