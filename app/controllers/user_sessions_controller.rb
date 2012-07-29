@@ -2,6 +2,7 @@ class UserSessionsController < ApplicationController
   skip_before_filter :require_login, :except => [:destroy]
   
   def new
+    @title = 'Log in'
     @user = User.new
   end
 

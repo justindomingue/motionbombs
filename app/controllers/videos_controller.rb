@@ -4,15 +4,18 @@ class VideosController < ApplicationController
   before_filter :remove_notifications, :only => :show
   
   def index
+    @title = 'Stop motion animation gallery and tutorials'
     @videos = Video.paginate(:page => params[:page]).per_page(12)
   end
   
   def show
     @video = Video.find(params[:id])
+    @title = @video.title
     @comments = @video.video_comments.order(:created_at).limit(5)
   end
   
   def new
+    @title = 'Submit a stop motion animation'
     @video = Video.new
   end
   
@@ -32,6 +35,7 @@ class VideosController < ApplicationController
   end
   
   def browse
+    @title = 'Browse stop motion gallery'
     @categories = Category.all
     
     if params[:trending]
