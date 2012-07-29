@@ -1,6 +1,7 @@
 class VideosController < ApplicationController
   before_filter :require_login, :only => [:new, :create]
   before_filter :increment_views, :only => :show
+  before_filter :remove_notifications, :only => :show
   
   def index
     @videos = Video.paginate(:page => params[:page]).per_page(12)
@@ -67,6 +68,13 @@ class VideosController < ApplicationController
         Visit.increment_for_user(current_user.id, params[:id])
       else
         Visit.increment_for_ip(request.remote_ip, params[:id])
+      end
+    end
+    
+    def remove_notifications
+      if params[:notification] && current_user
+        notifications = current_user.notifications.where(video_id:params[:id])
+        notifications.update_all(status:true)
       end
     end
 end

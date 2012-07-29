@@ -5,11 +5,12 @@ class Video < ActiveRecord::Base
   has_many :likes
   has_many :visits
   has_many :video_comments
+  has_many :notifications
   
   before_create do |video|
     # video.title.capitalize!
     #video.description.capitalize!
-    video.provider.capitalize!
+    #video.provider.capitalize!
   end
   
   validates :title, :thumb, :provider_video_id, :provider, :user_id, :presence => true

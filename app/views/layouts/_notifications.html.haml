@@ -1,0 +1,17 @@
+- unless @notifications.empty?
+  %a.dropdown-toggle{"data-toggle" => "dropdown", href:'#'}
+    %span.badge.badge-important.badge-circle.notification= @notifications.size
+    = current_user.username
+    %span.caret.gray-caret
+  %ul.dropdown-menu
+    - @notifications.group_by(&:video_id).each do |v, n|
+      %li= link_to (n.size.to_s + ' news on ' + truncate(Video.find(v).title, length:20)), controller:'videos', action:'show', id:v, :notification => 'true'
+    %li.divider
+    %li= link_to 'Sign out', logout_path
+- else
+  %a.dropdown-toggle{"data-toggle" => "dropdown", href:'#'}
+    %i.icon-user.margin-top-2
+    = current_user.username
+    %span.caret.gray-caret
+  %ul.dropdown-menu
+    %li= link_to 'Sign out', logout_path

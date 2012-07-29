@@ -22,12 +22,7 @@
         %ul.nav.pull-right
           %li.dropdown
             - if current_user
-              %a.dropdown-toggle{"data-toggle" => "dropdown", href:'#'}
-                %span.badge.badge-info.badge-circle.notification 2
-                = current_user.username.capitalize
-                %span.caret.gray-caret
-              %ul.dropdown-menu
-                %li= link_to 'Sign out', logout_path
+              = render 'layouts/notifications'
             - else
               %a.dropdown-toggle{"data-toggle" => "dropdown", href:'#'}
                 %i.icon-user.margin-top-2
