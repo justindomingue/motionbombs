@@ -28,6 +28,10 @@ class Video < ActiveRecord::Base
   scope :most_commented, order('video_comments_count DESC')
   scope :this_week, where(["created_at < ?", Time.now])
   
+  def to_param
+    "#{id}-#{title.parameterize}"
+  end
+  
   def self.get_youtube_video_id(provider_url)
     video_id = provider_url.split('v=')[1]
     ampersand_position = video_id.index('&')
