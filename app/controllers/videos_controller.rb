@@ -5,7 +5,7 @@ class VideosController < ApplicationController
   
   def index
     @title = 'Stop motion animation gallery and tutorials'
-    @videos = Video.paginate(:page => params[:page]).per_page(12)
+    @videos = Video.paginate(:page => params[:page]).per_page(12).order('created_at DESC')
     @categories = Category.all
   end
   
