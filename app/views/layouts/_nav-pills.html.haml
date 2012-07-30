@@ -1,29 +1,30 @@
-%ul.nav.nav-pills
+%ul.nav.nav-pills.filter-box
   %li.active
-    %a{href:'#'} Filters
-    
-  %li.dropdown
-    %a.dropdown-toggle{'data-toggle' => 'dropdown', href:'#'}
-      Trending
-      %b.caret
-    %ul.dropdown-menu
-      %li= link_to 'Most viewed', browse_path(trending:'views')
-      %li= link_to 'Most liked', browse_path(trending:'likes')
-      %li= link_to 'Most commented', browse_path(trending:'comments')
-      %li= link_to 'Popular this week', browse_path(trending:'popular')
-      
-  %li.dropdown
-    %a.dropdown-toggle{'data-toggle' => 'dropdown', href:'#'}
-      Category
-      %b.caret
-    %ul.dropdown-menu
-      - @categories.each do |c|
-        %li= link_to c.name, browse_path(category:c.name)
-      
-  %li.dropdown
-    %a.dropdown-toggle{'data-toggle' => 'dropdown', href:'#'}
-      Date
-      %b.caret
-    %ul.dropdown-menu
-      %li= link_to 'Newest', browse_path(date:'newest')
-      %li= link_to 'Oldest', browse_path(date:'oldest')
+    %a{href:'#','data-toggle' => 'collapse', 'data-target' => '#filter-box'}
+      FILTER BOX
+      %i.icon-resize-vertical.icon-white.margin-top-2
+#filter-box.collapse
+  %ul.nav.nav-pills
+    %li
+      %a{href:'#'}
+        Trending
+      %ul.filters-link
+        %li= link_to 'Most viewed', browse_path(trending:'views')
+        %li= link_to 'Most liked', browse_path(trending:'likes')
+        %li= link_to 'Most commented', browse_path(trending:'comments')
+        %li= link_to 'Popular this week', browse_path(trending:'popular')
+        
+    %li
+      %a{href:'#'}
+        Category
+      %ul.filters-link
+        - @categories.each do |c|
+          %li= link_to c.name, browse_path(category:c.name)
+        
+    %li
+      %a{href:'#'}
+        Date
+      %ul.filters-link
+        %li= link_to 'Newest', browse_path(date:'newest')
+        %li= link_to 'Oldest', browse_path(date:'oldest')
+  %hr

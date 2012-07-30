@@ -2,8 +2,11 @@
   %h1 The ultimate resource for stop-motion
   %small Browse, watch, add and learn.
 
-.index-filters= render 'layouts/nav-pills'
-
+.filters= render 'layouts/nav-pills'
+%p.center-text.margin-bottom-20
+  filtered by
+  %span.label.label-inverse date added
+    
 %ul.thumbnails#videos
   = render @videos
   
