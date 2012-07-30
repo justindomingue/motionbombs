@@ -2,3 +2,10 @@
 .notification { position: relative ; bottom: 2px;}
 .badge { font-size: 10px;}
 .badge-circle { padding: 1px 6px 2px;}
+.index-filters { width: 340px; margin:auto;}
+.nav-pills a {
+  color: black;
+  &:hover { color:black;}
+}
+.nav-pills .active > a, .nav-pills .active > a:hover { color: white; background-color: #B94A48;}
+.nav-tabs .open .dropdown-toggle, .nav-pills .open .dropdown-toggle, .nav > li.dropdown.open.active > a:hover {background-color: #ddd;border-color: #ddd;}

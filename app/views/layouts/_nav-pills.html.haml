@@ -1,0 +1,29 @@
+%ul.nav.nav-pills
+  %li.active
+    %a{href:'#'} Filters
+    
+  %li.dropdown
+    %a.dropdown-toggle{'data-toggle' => 'dropdown', href:'#'}
+      Trending
+      %b.caret
+    %ul.dropdown-menu
+      %li= link_to 'Most viewed', browse_path(trending:'views')
+      %li= link_to 'Most liked', browse_path(trending:'likes')
+      %li= link_to 'Most commented', browse_path(trending:'comments')
+      %li= link_to 'Popular this week', browse_path(trending:'popular')
+      
+  %li.dropdown
+    %a.dropdown-toggle{'data-toggle' => 'dropdown', href:'#'}
+      Category
+      %b.caret
+    %ul.dropdown-menu
+      - @categories.each do |c|
+        %li= link_to c.name, browse_path(category:c.name)
+      
+  %li.dropdown
+    %a.dropdown-toggle{'data-toggle' => 'dropdown', href:'#'}
+      Date
+      %b.caret
+    %ul.dropdown-menu
+      %li= link_to 'Newest', browse_path(date:'newest')
+      %li= link_to 'Oldest', browse_path(date:'oldest')
