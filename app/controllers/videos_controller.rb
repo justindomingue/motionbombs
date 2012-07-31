@@ -6,8 +6,8 @@ class VideosController < ApplicationController
   def index
     @title = 'Stop motion animation gallery and tutorials'
     @videos = Video.paginate(:page => params[:page]).per_page(12).order('created_at DESC')
-    @categories = Category.all
-    @tags = Video.tag_counts_on(:tags)
+    @categories = Category.find(:all, :order => "TRIM(LOWER(name))")
+    @tags = Video.tag_counts_on(:tags).order("RANDOM()").first(50)
   end
   
   def show
@@ -27,10 +27,8 @@ class VideosController < ApplicationController
     params[:video][:thumb] = Video.get_thumb_from_youtube(params[:video][:provider_video_id])
     params[:video][:views] = 0    
     params[:video][:user_id] = current_user.id
-    tags_str = params[:video].delete(:tags)
 
     @video = Video.new(params[:video])
-    @video.tag_list = tags_str
     if @video.save
       redirect_to video_path(@video), notice:'Video added successfully.'
     else
@@ -43,7 +41,29 @@ class VideosController < ApplicationController
     @categories = Category.all
     @tags = Video.tag_counts_on(:tags)
     
-    if params[:trending]
+    parse_params
+    
+  end
+  
+  private
+      
+    def increment_views
+      if current_user
+        Visit.increment_for_user(current_user.id, params[:id])
+      else
+        Visit.increment_for_ip(request.remote_ip, params[:id])
+      end
+    end
+    
+    def remove_notifications
+      if params[:notification] && current_user
+        notifications = current_user.notifications.where(video_id:params[:id])
+        notifications.update_all(status:true)
+      end
+    end
+    
+    def parse_params
+      if params[:trending]
       @filter = params[:trending]
       if params[:trending] == 'views'
         @videos = Video.most_viewed
@@ -72,21 +92,4 @@ class VideosController < ApplicationController
       @videos = Video.last(12)
     end
   end
-  
-  private
-      
-    def increment_views
-      if current_user
-        Visit.increment_for_user(current_user.id, params[:id])
-      else
-        Visit.increment_for_ip(request.remote_ip, params[:id])
-      end
-    end
-    
-    def remove_notifications
-      if params[:notification] && current_user
-        notifications = current_user.notifications.where(video_id:params[:id])
-        notifications.update_all(status:true)
-      end
-    end
 end

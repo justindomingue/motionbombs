@@ -61,5 +61,8 @@ module Motionbombs
     config.action_view.field_error_proc = Proc.new { |html_tag, instance| 
       "#{html_tag}".html_safe 
     }
+    
+    ActsAsTaggableOn.remove_unused_tags = true
+    ActsAsTaggableOn.force_lowercase = true
   end
 end

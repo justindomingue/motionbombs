@@ -26,7 +26,7 @@ ActiveAdmin.register Video do
       f.input :category
       f.input :creator
       f.input :description
-      f.input :tags, :as => :string
+      f.input :tag_list, :as => :string
       f.input :thumb
       f.input :provider
       f.input :provider_video_id

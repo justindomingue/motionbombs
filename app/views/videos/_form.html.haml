@@ -32,12 +32,12 @@
         %i.icon-user
       = f.text_field :creator, :class => "form-field small-text-field"
   
-  = f.label :tags
+  = f.label :tag_list, 'Tags'
   .controls
     .input-prepend
       %span.add-on
         %i.icon-tags
-      = f.text_field :tags, :class => "form-field small-text-field", :value => 'separated by a comma', :onblur => "if (this.value == '') {this.value = 'separated by a comma';}",  :onfocus => "if (this.value == 'separated by a comma') {this.value = '';}"
+      = f.text_field :tag_list, :class => "form-field small-text-field", :value => 'separated by a comma', :onblur => "if (this.value == '') {this.value = 'separated by a comma';}",  :onfocus => "if (this.value == 'separated by a comma') {this.value = '';}"
   
   .category
     %span.category-text Category
