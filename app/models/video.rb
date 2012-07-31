@@ -1,5 +1,8 @@
 class Video < ActiveRecord::Base
-  attr_accessible :id, :url, :title, :description, :thumb, :provider_video_id, :provider, :views, :likes, :user_id, :category_id, :creator
+  attr_accessible :id, :url, :title, :description, :thumb, :provider_video_id, :provider, :views, :likes, :user_id, :category_id, :creator, :tags
+  
+  acts_as_taggable
+  
   belongs_to :user
   belongs_to :category
   has_many :likes

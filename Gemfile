@@ -46,3 +46,4 @@ gem 'haml'
 gem 'will_paginate'
 gem 'coffee-rails', '~> 3.2.1'
 
+gem 'acts-as-taggable-on'
