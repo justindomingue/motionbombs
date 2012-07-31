@@ -6,7 +6,7 @@
 #filter-box.collapse
   %ul.nav.nav-pills
     %li
-      %a{href:'#'}
+      %h4
         Trending
       %ul.filters-link
         %li= link_to 'Most viewed', browse_path(trending:'views')
@@ -15,16 +15,23 @@
         %li= link_to 'Popular this week', browse_path(trending:'popular')
         
     %li
-      %a{href:'#'}
+      %h4
         Category
       %ul.filters-link
         - @categories.each do |c|
           %li= link_to c.name, browse_path(category:c.name)
         
     %li
-      %a{href:'#'}
+      %h4
         Date
       %ul.filters-link
         %li= link_to 'Newest', browse_path(date:'newest')
         %li= link_to 'Oldest', browse_path(date:'oldest')
+        
+    %li
+      %h4
+        Tags cloud
+      %ul.filters-link.tags-cloud
+        - tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class|
+          = link_to tag.name, browse_path(tag:tag.name), :class => css_class
   %hr

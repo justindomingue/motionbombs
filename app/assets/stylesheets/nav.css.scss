@@ -9,6 +9,13 @@
 }
 .nav-pills .active > a, .nav-pills .active > a:hover { color: white; background-color: #B94A48;}
 .nav-tabs .open .dropdown-toggle, .nav-pills .open .dropdown-toggle, .nav > li.dropdown.open.active > a:hover {background-color: #ddd;border-color: #ddd;}
+ul.nav-pills li.filter-option { border-right: 1px solid #F0F0F0; margin-right: 10px; padding-right: 20px; height: 100%;}
 .filters-link{ list-style: none; li { margin-bottom: 5px;}}
-.filters-link li a:hover { color: #0088cc;}
-#filter-box { width: 400px; margin:auto;}
+.filters-link li a:hover, .filters-link a:hover { color: #0088cc;}
+#filter-box { width: 610px; margin:auto; li { margin-right: 10px;} h4 { margin-bottom: 5px;}}
+.tag-elements { margin-left: 25px;}
+.tags-cloud { width: 150px;}
+.css1 { font-size: xx-small;}
+.css2 { font-size: medium; }
+.css3 { font-size: large; }
+.css4 { font-size: x-large; }

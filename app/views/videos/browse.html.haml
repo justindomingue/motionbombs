@@ -10,7 +10,11 @@
   %br
             
 %ul.thumbnails#videos
-  = render @videos
+  - if @videos.nil? || @videos.empty?
+    %p.margin-top-20
+      %span.well No videos were found
+  - else
+    = render @videos
     
 
 /

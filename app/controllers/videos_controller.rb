@@ -7,6 +7,7 @@ class VideosController < ApplicationController
     @title = 'Stop motion animation gallery and tutorials'
     @videos = Video.paginate(:page => params[:page]).per_page(12).order('created_at DESC')
     @categories = Category.all
+    @tags = Video.tag_counts_on(:tags)
   end
   
   def show
@@ -40,6 +41,7 @@ class VideosController < ApplicationController
   def browse
     @title = 'Browse stop motion gallery'
     @categories = Category.all
+    @tags = Video.tag_counts_on(:tags)
     
     if params[:trending]
       @filter = params[:trending]
@@ -55,7 +57,7 @@ class VideosController < ApplicationController
       end
     elsif params[:category]
       @filter = params[:category]
-      @videos = Category.find_by_name(params[:category]).videos
+      @videos = Category.find_by_name(@filter).videos
     elsif params[:date]
       @filter = params[:date]
       if params[:date] == 'newest'
@@ -63,6 +65,9 @@ class VideosController < ApplicationController
       elsif params[:date] == 'oldest'
         @videos = Video.first 12
       end
+    elsif params[:tag]
+      @filter = params[:tag]
+      @videos = Video.tagged_with(@filter)
     else
       @videos = Video.last(12)
     end
