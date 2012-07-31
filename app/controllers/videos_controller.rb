@@ -25,8 +25,10 @@ class VideosController < ApplicationController
     params[:video][:thumb] = Video.get_thumb_from_youtube(params[:video][:provider_video_id])
     params[:video][:views] = 0    
     params[:video][:user_id] = current_user.id
-    
+    tags_str = params[:video].delete(:tags)
+
     @video = Video.new(params[:video])
+    @video.tag_list = tags_str
     if @video.save
       redirect_to video_path(@video), notice:'Video added successfully.'
     else
