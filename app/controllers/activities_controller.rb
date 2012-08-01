@@ -1,10 +1,10 @@
 class ActivitiesController < ApplicationController
   
   def index
-    recent_videos = Video.last 50
-    recent_likes = Like.last 50
-    recent_comments = VideoComment.last 50
-    recent_visits = Visit.last 50
+    recent_videos = Video.last 30
+    recent_likes = Like.last 30
+    recent_comments = VideoComment.last 30
+    recent_visits = Visit.where("user_id IS NOT NULL").last 30
     
     @activity = recent_videos + recent_likes + recent_comments + recent_visits
     @activity.sort! { |a,b| a.created_at <=> b.created_at }.reverse!
