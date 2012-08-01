@@ -13,6 +13,6 @@ class ActivitiesController < ApplicationController
     
     @activity = recent_videos + recent_likes + recent_comments + recent_visits
     @activity.sort! { |a,b| a.created_at <=> b.created_at }.reverse!
-    @activity = @activity.paginate(:page => params[:page], :per_page => 30)
+    @activity = @activity.paginate(:page => params[:page], :per_page => 10)
   end
 end
