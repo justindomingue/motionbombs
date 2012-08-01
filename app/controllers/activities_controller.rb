@@ -1,7 +1,14 @@
 class ActivitiesController < ApplicationController
   
   def index
-      
+    recent_videos = Video.last 50
+    recent_likes = Like.last 50
+    recent_comments = VideoComment.last 50
+    recent_visits = Visit.last 50
+    
+    @activity = recent_videos + recent_likes + recent_comments + recent_visits
+    @activity.sort! { |a,b| a.created_at <=> b.created_at }.reverse!
+    @activity = @activity.paginate(:page => params[:page], :per_page => 30)
   end
   
   def user
@@ -13,6 +20,6 @@ class ActivitiesController < ApplicationController
     
     @activity = recent_videos + recent_likes + recent_comments + recent_visits
     @activity.sort! { |a,b| a.created_at <=> b.created_at }.reverse!
-    @activity = @activity.paginate(:page => params[:page], :per_page => 10)
+    @activity = @activity.paginate(:page => params[:page], :per_page => 30)
   end
 end

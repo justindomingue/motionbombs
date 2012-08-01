@@ -1,0 +1,6 @@
+$('#user_activity').append('<%= j render :partial => "activity", :collection => @activity %>');
+<% if @activity.next_page %>
+  $('.pagination').replaceWith('<%= j will_paginate(@activity) %>');
+<% else %>
+  $('.pagination').remove();
+<% end %>

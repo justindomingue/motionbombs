@@ -8,6 +8,7 @@ Motionbombs::Application.routes.draw do
   
   # Activity routes
   get 'users/:id/activity' => 'activities#user', :as => :user_activity
+  get 'activity' => 'activities#index', :as => :activity
   
   # Likes routes
   resources :likes, :only => [:create, :destroy]
