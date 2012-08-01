@@ -1,0 +1,15 @@
+.table td.activity-icon { }
+.table .activity-text a { 
+  color: $blue;
+  &:hover { text-decoration: underline;}
+}
+.table img { 
+  height:auto; 
+  vertical-align: top; 
+  padding: 1px; 
+  border: 1px #D8D8D8 solid; 
+  border-radius: 2px;
+  &:hover {
+    border-color: #0088cc;
+  }
+}

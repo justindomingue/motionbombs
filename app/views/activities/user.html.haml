@@ -1,0 +1,26 @@
+.page-header
+  %h1
+    Activity feed for 
+    = @user.username
+  
+%table.table
+  %tbody
+    - @activity.each do |activity|
+      %tr
+        %td.activity-icon
+          = render_icon(activity.class.name.downcase)
+        %td.activity-thumb
+          - if activity.class.name == "Video"
+            = link_to (image_tag activity.thumb, size:'25x25'), video_path(activity)
+          - else
+            = link_to (image_tag activity.video.thumb, size:'25x25'), video_path(activity.video)
+        %td.activity-text
+          = link_to activity.user.username, user_activity_path(activity.user)
+          = render_action_text(activity.class.name.downcase)
+          - if activity.class.name == 'Video'
+            = link_to activity.title, video_path(activity)
+          - else
+            = link_to activity.video.title, video_path(activity.video)
+          %span.label.label-important.small-text= time_ago_in_words(activity.created_at)
+          
+= will_paginate @activity

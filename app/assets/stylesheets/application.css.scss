@@ -18,6 +18,7 @@ body { padding-top: 60px; }
 @import "video";
 @import "form";
 @import "nav";
+@import "activity";
 
 a { 
   text-decoration:none;
@@ -61,6 +62,7 @@ a {
   }
 }
 
+$blue: #0088cc;
 .center-text { text-align: center;}
 .margin-top-2 { margin-top: 2px;}
 .margin-top-20 { margin-top: 20px;}
@@ -69,6 +71,7 @@ a {
 .align-right { text-align: right;}
 .light-text { color:#A8A8A8 ;}
 .red-danger { color: #B94A48;}
+.small-text { font-size: 0.7em;}
 
 footer p { padding: 0 20px 20px;}
 .label-login a {
