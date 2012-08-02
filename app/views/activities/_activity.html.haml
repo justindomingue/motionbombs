@@ -3,9 +3,9 @@
     = render_icon(activity.class.name.downcase)
   %td.activity-thumb
     - if activity.class.name == "Video"
-      = link_to (image_tag activity.thumb, size:'25x25'), video_path(activity)
+      = link_to (image_tag activity.thumb, size:'25x14'), video_path(activity)
     - else
-      = link_to (image_tag activity.video.thumb, size:'25x25'), video_path(activity.video)
+      = link_to (image_tag activity.video.thumb, size:'25x14'), video_path(activity.video)
   %td.activity-text
     = link_to activity.user.username, user_activity_path(activity.user)
     = render_action_text(activity.class.name.downcase)

@@ -21,7 +21,7 @@ module ActivitiesHelper
     when "like"
       text = 'liked'
     when "videocomment"
-      text = 'commented on'
+      text = 'commented'
     when "visit"
       text = 'watched'
     end

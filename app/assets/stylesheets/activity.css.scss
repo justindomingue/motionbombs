@@ -4,7 +4,9 @@
 }
 .table img { 
   height:auto; 
-  vertical-align: top; 
+  vertical-align: top;
+  min-height: 8px;
+  min-width: 15px;
   padding: 1px; 
   border: 1px #D8D8D8 solid; 
   border-radius: 2px;
