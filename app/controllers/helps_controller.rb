@@ -10,7 +10,7 @@ class HelpsController < ApplicationController
     if @help.save
       redirect_to root_path, :notice => 'Help ticket successfully created. You should be contacted soon.'
     else
-      flash.now[:error] = "Error while creating the help ticket. Try again."
+      flash[:error] = "Error while creating the help ticket. Try again."
       render :new
     end
   end

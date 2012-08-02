@@ -4,7 +4,7 @@ ActiveAdmin.register Video do
     column :title
     column :user
     column :category
-    column :provider
+    column :tag_list
     column :views
     column :likes, :sortable => "likes.count" do |video|
       video.likes.count.to_s

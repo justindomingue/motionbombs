@@ -2,6 +2,7 @@ class VideosController < ApplicationController
   before_filter :require_login, :only => [:new, :create]
   before_filter :increment_views, :only => :show
   before_filter :remove_notifications, :only => :show
+  before_filter :has_access_to_video?, :only => [:edit, :udpate]
   
   def index
     @title = 'Stop motion animation gallery and tutorials'
@@ -32,6 +33,20 @@ class VideosController < ApplicationController
     if @video.save
       redirect_to video_path(@video), notice:'Video added successfully.'
     else
+      render :new
+    end
+  end
+  
+  def edit
+    @video = Video.find(params[:id])
+  end
+  
+  def update
+    @video = Video.find(params[:id])
+    if @video.update_attributes(params[:video])
+      redirect_back_or_to(video_path(@video), :notice => 'Video successfully updated.')
+    else
+      flash.now.alert = "Error while updating your video."
       render :new
     end
   end
@@ -82,7 +97,7 @@ class VideosController < ApplicationController
     elsif params[:date]
       @filter = params[:date]
       if params[:date] == 'newest'
-        @videos = Video.last 12
+        @videos = Video.last(12).reverse
       elsif params[:date] == 'oldest'
         @videos = Video.first 12
       end
@@ -91,6 +106,16 @@ class VideosController < ApplicationController
       @videos = Video.tagged_with(@filter)
     else
       @videos = Video.last(12)
+    end
+  end
+  
+  private
+  
+  def has_access_to_video?
+    if v = Video.find_by_id(params[:id])
+      unless current_user == v.user
+        not_user_page
+      end
     end
   end
 end

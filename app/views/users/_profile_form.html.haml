@@ -1,0 +1,20 @@
+= form_for @user do |f|
+  .field
+    = f.label :username
+    .controls
+      .input-prepend
+        %span.add-on
+          %i.icon-user
+        = f.text_field :username, :class => "form-field small-text-field" 
+  .field
+    = f.label :email
+    .controls
+      .input-prepend
+        %span.add-on
+          %i.icon-envelope
+        = f.text_field :email, :class => "form-field small-text-field" 
+  
+  %br
+  
+  .actions
+    = f.submit 'Update', class:"btn btn-danger btn-large", "data-disable-with"=> "Just a moment..."

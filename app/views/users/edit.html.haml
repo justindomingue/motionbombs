@@ -1,0 +1,11 @@
+.row
+  .span8.offset2
+    .section.section-large
+      .section-header
+        %h3 Your Profile
+        %ul
+          %li= link_to "Manage your videos →", user_activity_path
+      .section-body
+        %h3 Manage your profile information
+        %hr
+        = render 'profile_form'

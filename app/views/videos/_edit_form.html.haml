@@ -1,0 +1,50 @@
+= form_for @video, :class => "form-horizontal" do |f|
+  - if @video.errors.any?
+    .error_explanation
+      %h2= pluralize(@video.errors.count, "error")
+      prohibited this user from being saved:
+
+      %ul
+        - @video.errors.full_messages.each do |msg|
+          %li= msg
+          
+  = f.label :title, 'Give your video a title'
+  .controls
+    .input-prepend
+      %span.add-on
+        %i.icon-film
+      = f.text_field :title, :class => "form-field small-text-field"
+      
+  = f.label :description
+  = f.text_area :description, rows:"5", :class => "span7"
+  
+  = f.label :url, 'URL of the video'
+  .small-text if you need to change the embedded video, simply add a new URL
+  .controls
+    .input-prepend
+      %span.add-on
+        %i.icon-globe
+      = f.text_field :url, :class => "form-field small-text-field", :value => ""
+  
+  = f.label :creator, 'Original creator of the video'
+  .controls
+    .input-prepend
+      %span.add-on
+        %i.icon-user
+      = f.text_field :creator, :class => "form-field small-text-field"
+  
+  = f.label :tag_list, 'Tags'
+  .controls
+    .input-prepend
+      %span.add-on
+        %i.icon-tags
+      = f.text_field :tag_list, :class => "form-field small-text-field", :value => @video.tag_list, :onblur => "if (this.value == '') {this.value = 'separated by a comma';}",  :onfocus => "if (this.value == 'separated by a comma') {this.value = '';}"
+  
+  .category
+    %span.category-text Category
+    %span.category-form= collection_select(:video, :category_id, Category.all, :id, :name, :include_blank => true)
+
+  .actions
+    = f.submit "Add video", :class => "btn btn-info btn-large", "data-disable-with"=> "Just a moment..."
+  
+  

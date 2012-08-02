@@ -1,7 +1,6 @@
 // Example using 'journal' bootswatch
 //
 // First import journal variables
-
 @import "bootswatch/journal/variables";
 
 // Then bootstrap itself
@@ -15,6 +14,7 @@ body { padding-top: 60px; }
 
 // And finally bootswatch style itself
 @import "bootswatch/journal/bootswatch";
+
 @import "video";
 @import "form";
 @import "nav";
