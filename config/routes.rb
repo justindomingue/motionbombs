@@ -20,7 +20,8 @@ Motionbombs::Application.routes.draw do
   get 'signup' => 'users#new', :as => 'signup'
   
   resources :user_sessions, :only => [:new, :create, :destroy]
-  resources :users
+  resources :users, :only => [:new, :create, :update]
+  get 'user/:id/profile' => 'users#edit', :as => :profile
   get 'users/:id/videos' => "users#videos", :as => :user_videos
   
   match "oauth/callback" => "oauths#callback"
