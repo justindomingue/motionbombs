@@ -3,6 +3,6 @@
 
 %table.table.table-striped
   %tbody#user_activity
-    = render :partial => 'activity', :collection => activity
+    = render :partial => 'activity', :collection => @activity
 
 = will_paginate @activity
