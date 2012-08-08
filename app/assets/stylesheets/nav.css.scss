@@ -2,7 +2,7 @@
 .notification { position: relative ; bottom: 2px;}
 .badge { font-size: 10px;}
 .badge-circle { padding: 1px 6px 2px;}
-.filter-box { width: 120px; margin:auto; margin-bottom: 20px;}
+.filter-box { width: 100px; margin:auto; margin-bottom: 20px;}
 .nav-pills a {
   color: black;
   &:hover { color:black;}
@@ -12,9 +12,9 @@
 ul.nav-pills li.filter-option { border-right: 1px solid #F0F0F0; margin-right: 10px; padding-right: 20px; height: 100%;}
 .filters-link{ list-style: none; li { margin-bottom: 5px;}}
 .filters-link li a:hover, .filters-link a:hover { color: $blue;}
-#filter-box { width: 800px; margin:auto; li { margin-right: 10px;} h4 { margin-bottom: 5px;}}
+#filter-box { width: 760px; margin:auto; li { margin-right: 10px;} h4 { margin-bottom: 5px;}}
 .tag-elements { margin-left: 25px;}
-.tags-cloud { width: 340px;}
+.tags-cloud { width: 300px;}
 .css1 { font-size: xx-small;}
 .css2 { font-size: medium; }
 .css3 { font-size: large; }
