@@ -3,6 +3,9 @@
 
 %table.table.table-striped
   %tbody#user_activity
-    = render :partial => 'activity', :collection => @activity
+  - @activity.group_by{|a| a.created_at.strftime "%D"}.each do |date_str, activity|
+    %tr
+      %td{colspan:"3"}= activity[0].created_at.strftime "%A, %B %y"
+    = render :partial => 'activity', :collection => activity
 
 = will_paginate @activity
