@@ -30,6 +30,11 @@ class UsersController < ApplicationController
     end
   end
   
+  def videos
+    @user = User.find(params[:id])
+    @videos = @user.videos.reverse
+  end
+  
   private
   
     def has_access_to_user?

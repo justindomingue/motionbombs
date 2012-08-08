@@ -51,6 +51,17 @@ class VideosController < ApplicationController
     end
   end
   
+  def destroy
+    @video = Video.find(params[:id])
+    if @video.destroy
+      redirect_to user_videos_path(current_user), :notice => "The video was deleted."
+    else
+      flash.now.error = "Error while deleting the video."
+      redirect_to user_videos_path(current_user)
+    end
+    
+  end
+  
   def browse
     @title = 'Browse stop motion gallery'
     @categories = Category.all

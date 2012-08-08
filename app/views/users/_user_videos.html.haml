@@ -1,0 +1,21 @@
+%li.span3
+  .thumbnail
+    = link_to image_tag(video.thumb, size:"260x145"), video_path(video)
+    .thumb_info
+      %h5= truncate video.title, length:20
+      %p
+        = video.views
+        %i.icon-eye-open.video-counts
+        
+        = video.likes.count
+        %i.icon-heart.video-counts
+        
+        - unless video.video_comments.empty?
+          = video.video_comments.count
+          %i.icon-comment.video-counts
+      - if video.user == current_user
+        %p
+          = link_to "Watch", video
+          = link_to "Edit", edit_video_path(video)
+          = link_to "Delete", video, :confirm => 'Are your sure?', :method => :delete
+          
