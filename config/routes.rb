@@ -3,7 +3,8 @@ Motionbombs::Application.routes.draw do
   root :to => 'videos#index'
 
   # Video routes
-  resources "stopmotion", :controller => :videos, :as => :video
+  resources :videos
+  #resources "stopmotion", :controller => :videos, :as => :video
   match 'browse' => 'videos#browse', :as => :browse
   
   # Activity routes
