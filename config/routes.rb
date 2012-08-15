@@ -21,7 +21,7 @@ Motionbombs::Application.routes.draw do
   get 'signup' => 'users#new', :as => 'signup'
   
   resources :user_sessions, :only => [:new, :create, :destroy]
-  resources :users, :only => [:new, :create, :update]
+  resources :users, :only => [:new, :create, :update, :edit]
   get 'user/:id/profile' => 'users#edit', :as => :profile
   get 'users/:id/videos' => "users#videos", :as => :user_videos
   
